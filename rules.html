@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serverregeln - BlitzSMP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Minecraft&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .rules-hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rules-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="rules-grid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 15" fill="none" stroke="%23ffffff" stroke-width="0.3" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23rules-grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .rules-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .rules-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .rules-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .rules-container {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .rule-category {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .rule-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+        
+        .rules-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .rule-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .rule-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .rule-icon {
+            width: 30px;
+            height: 30px;
+            background: #e74c3c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .rule-text {
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .rule-item.allowed .rule-icon {
+            background: var(--primary-color);
+        }
+        
+        .rule-item.warning .rule-icon {
+            background: #f39c12;
+        }
+        
+        .rules-important {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 60px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+        }
+        
+        .rules-important h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .rules-important p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .rules-navigation {
+            background: var(--light-color);
+            padding: 40px 0;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: white;
+            color: var(--dark-color);
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .nav-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .nav-btn.primary {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .nav-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .rules-title {
+                font-size: 2.5rem;
+            }
+            
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cube"></i>
+                <span>BlitzSMP</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Start</a>
+                </li>
+                <li class="nav-item">
+                    <a href="discord.html" class="nav-link">Discord</a>
+                </li>
+                <li class="nav-item">
+                    <a href="rules.html" class="nav-link active">Regeln</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">Über uns</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Rules Hero Section -->
+    <section class="rules-hero">
+        <div class="rules-content">
+            <h1 class="rules-title">📜 BlitzSMP – Serverregeln</h1>
+            <p class="rules-subtitle">Bitte lies und befolge diese Regeln sorgfältig für ein faires und angenehmes Spielerlebnis</p>
+        </div>
+    </section>
+
+    <!-- Rules Container -->
+    <section class="rules-container">
+        <div class="container">
+            <div class="rules-grid">
+                <!-- Client & Mod Rules -->
+                <div class="rule-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="category-title">⚔️ Client- & Mod-Regeln</div>
+                    </div>
+                    <ul class="rules-list">
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Keine gehackten Clients oder Cheats</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Keine Mods, die Bewegung, Inventar oder automatisches Platzieren erleichtern etc.</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Keine Health-Anzeigen, Radar, ESP, Freecam oder Auto-Clicker etc.</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Keine Makros, Scripts oder Crafting-Modifikationen etc.</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Bugs dürfen nicht ausgenutzt werden</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Keine Item-Duplikation</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Kein Handel gegen echtes Geld oder externe Belohnungen</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Maximal 2 Accounts gleichzeitig benutzen</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Keine Seeds verwenden, die Vorteile bringen</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Behavior Rules -->
+                <div class="rule-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="category-title">💬 Verhaltensregeln</div>
+                    </div>
+                    <ul class="rules-list">
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Sei respektvoll: Kein Spam, keine Belästigung, keine Hassreden oder Todesdrohungen etc.</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Keine privaten Informationen anderer weitergeben</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Gib dich nicht als Staff-Mitglied aus</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Kein Bann-Evasion oder Umgehen von Strafen</div>
+                        </li>
+                        <li class="rule-item">
+                            <div class="rule-icon">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="rule-text">Denk nach, bevor du etwas tust – auch Dinge, die hier nicht explizit stehen, können verboten sein</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- General Rules -->
+                <div class="rule-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="category-title">🌐 Allgemeines</div>
+                    </div>
+                    <ul class="rules-list">
+                        <li class="rule-item allowed">
+                            <div class="rule-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="rule-text">Alle Bugs, Glitches oder Cheater sofort melden</div>
+                        </li>
+                        <li class="rule-item allowed">
+                            <div class="rule-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="rule-text">Respektiere die Community und halte den Chat und das Spiel fair für alle</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Important Notice -->
+            <div class="rules-important">
+                <h3>✅ Zustimmung</h3>
+                <p>Mit dem Betreten des Discord-Servers und/oder des Minecraft-Servers stimmst du automatisch diesen Regeln zu. Verstöße gegen diese Regeln können zu Verwarnungen, temporären oder permanenten Banns führen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <section class="rules-navigation">
+        <div class="container">
+            <div class="nav-buttons">
+                <a href="discord.html" class="nav-btn primary">
+                    <i class="fab fa-discord"></i>
+                    Discord beitreten
+                </a>
+                <a href="index.html" class="nav-btn">
+                    <i class="fas fa-home"></i>
+                    Zurück zur Startseite
+                </a>
+                <a href="about.html" class="nav-btn">
+                    <i class="fas fa-info-circle"></i>
+                    Über uns
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BlitzSMP</h3>
+                    <p>Der beste Minecraft Survival Server Deutschlands</p>
+                    <div class="social-links">
+                        <a href="discord.html"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Start</a></li>
+                        <li><a href="discord.html">Discord</a></li>
+                        <li><a href="rules.html">Regeln</a></li>
+                        <li><a href="about.html">Über uns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="discord.html">Discord Support</a></li>
+                        <li><a href="rules.html">Serverregeln</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BlitzSMP. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
