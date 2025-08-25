@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Server - BlitzSMP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Minecraft&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .discord-hero {
+            background: linear-gradient(135deg, #5865F2 0%, #7289DA 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .discord-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="discord-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23discord-grid)"/></svg>');
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        .discord-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .discord-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .discord-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .discord-join-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 40px;
+            background: #ffffff;
+            color: #5865F2;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .discord-join-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background: #f8f9fa;
+        }
+        
+        .discord-join-btn i {
+            font-size: 1.5rem;
+        }
+        
+        .discord-features {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .discord-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .discord-card {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .discord-card:hover {
+            transform: translateY(-10px);
+            border-color: #5865F2;
+            box-shadow: 0 15px 35px rgba(88, 101, 242, 0.1);
+        }
+        
+        .discord-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #5865F2, #7289DA);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .discord-card:hover .discord-icon {
+            transform: scale(1.1) rotate(360deg);
+        }
+        
+        .discord-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .discord-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .discord-stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2c2f33 0%, #23272a 100%);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 30px 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #5865F2;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        .discord-channels {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .channel-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #5865F2;
+            transition: all 0.3s ease;
+        }
+        
+        .channel-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(88, 101, 242, 0.1);
+        }
+        
+        .channel-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .channel-icon {
+            width: 40px;
+            height: 40px;
+            background: #5865F2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .channel-name {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .channel-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .discord-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #5865F2 0%, #7289DA 100%);
+            text-align: center;
+            color: white;
+        }
+        
+        .discord-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .discord-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .discord-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .discord-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .discord-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .discord-title {
+                font-size: 2.5rem;
+            }
+            
+            .discord-join-btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .discord-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cube"></i>
+                <span>BlitzSMP</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Start</a>
+                </li>
+                <li class="nav-item">
+                    <a href="discord.html" class="nav-link active">Discord</a>
+                </li>
+                <li class="nav-item">
+                    <a href="rules.html" class="nav-link">Regeln</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">Über uns</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Discord Hero Section -->
+    <section class="discord-hero">
+        <div class="discord-content">
+            <h1 class="discord-title">Tritt unserem Discord bei!</h1>
+            <p class="discord-subtitle">Verbinde dich mit der BlitzSMP Community und bleibe immer auf dem neuesten Stand</p>
+            <a href="https://discord.gg/fAT8TTZpgX" target="_blank" class="discord-join-btn">
+                <i class="fab fa-discord"></i>
+                Discord Server beitreten
+            </a>
+        </div>
+    </section>
+
+    <!-- Discord Features -->
+    <section class="discord-features">
+        <div class="container">
+            <h2 class="section-title">Warum Discord?</h2>
+            <div class="discord-grid">
+                <div class="discord-card">
+                    <div class="discord-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Aktive Community</h3>
+                    <p>Tausche dich mit über 100+ Spielern aus, teile deine Builds und finde neue Freunde in unserer freundlichen Community.</p>
+                </div>
+                <div class="discord-card">
+                    <div class="discord-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Server Updates</h3>
+                    <p>Erhalte sofortige Benachrichtigungen über Server-Updates, Events und wichtige Ankündigungen.</p>
+                </div>
+                <div class="discord-card">
+                    <div class="discord-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Unser Team ist rund um die Uhr für dich da. Bei Fragen oder Problemen helfen wir dir gerne weiter!</p>
+                </div>
+                <div class="discord-card">
+                    <div class="discord-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Gaming Channels</h3>
+                    <p>Spezielle Channels für verschiedene Spielmodi, Events und Community-Aktivitäten.</p>
+                </div>
+                <div class="discord-card">
+                    <div class="discord-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Events & Wettbewerbe</h3>
+                    <p>Nimm an regelmäßigen Events, Challenges und Wettbewerben teil und gewinne tolle Preise!</p>
+                </div>
+                <div class="discord-card">
+                    <div class="discord-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Sicherheit</h3>
+                    <p>Unser Discord ist moderiert und sicher. Wir schützen unsere Community vor Spam und unangemessenem Verhalten.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord Stats -->
+    <section class="discord-stats">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Discord Statistiken</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="500">0</span>
+                    <div class="stat-label">Mitglieder</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="20">0</span>
+                    <div class="stat-label">Channels</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="10">0</span>
+                    <div class="stat-label">Moderatoren</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="24">0</span>
+                    <div class="stat-label">Stunden Online</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord Channels -->
+    <section class="discord-channels">
+        <div class="container">
+            <h2 class="section-title">Unsere Discord Channels</h2>
+            <div class="channels-grid">
+                <div class="channel-card">
+                    <div class="channel-header">
+                        <div class="channel-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div>
+                            <div class="channel-name">#ankündigungen</div>
+                            <div class="channel-description">Wichtige Server-Updates und News</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel-card">
+                    <div class="channel-header">
+                        <div class="channel-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div>
+                            <div class="channel-name">#allgemein</div>
+                            <div class="channel-description">Allgemeine Gespräche und Diskussionen</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel-card">
+                    <div class="channel-header">
+                        <div class="channel-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div>
+                            <div class="channel-name">#minecraft</div>
+                            <div class="channel-description">Minecraft-spezifische Themen</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel-card">
+                    <div class="channel-header">
+                        <div class="channel-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div>
+                            <div class="channel-name">#screenshots</div>
+                            <div class="channel-description">Teile deine besten Builds und Screenshots</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel-card">
+                    <div class="channel-header">
+                        <div class="channel-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div>
+                            <div class="channel-name">#hilfe</div>
+                            <div class="channel-description">Fragen und Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel-card">
+                    <div class="channel-header">
+                        <div class="channel-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div>
+                            <div class="channel-name">#events</div>
+                            <div class="channel-description">Events und Wettbewerbe</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord CTA -->
+    <section class="discord-cta">
+        <div class="container">
+            <h2>Bereit beizutreten?</h2>
+            <p>Werde Teil unserer wachsenden Community und erlebe Minecraft wie nie zuvor!</p>
+            <div class="discord-links">
+                <a href="https://discord.gg/fAT8TTZpgX" target="_blank" class="discord-link">
+                    <i class="fab fa-discord"></i>
+                    Discord beitreten
+                </a>
+                <a href="rules.html" class="discord-link">
+                    <i class="fas fa-book"></i>
+                    Regeln lesen
+                </a>
+                <a href="index.html" class="discord-link">
+                    <i class="fas fa-home"></i>
+                    Zurück zur Startseite
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BlitzSMP</h3>
+                    <p>Der beste Minecraft Survival Server Deutschlands</p>
+                    <div class="social-links">
+                        <a href="discord.html"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Start</a></li>
+                        <li><a href="discord.html">Discord</a></li>
+                        <li><a href="rules.html">Regeln</a></li>
+                        <li><a href="about.html">Über uns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="discord.html">Discord Support</a></li>
+                        <li><a href="rules.html">Serverregeln</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BlitzSMP. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Animate statistics
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 50);
+            });
+        }
+        
+        // Trigger animation when stats section is visible
+        const statsSection = document.querySelector('.discord-stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
