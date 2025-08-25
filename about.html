@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns - BlitzSMP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Minecraft&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="about-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23about-grid)"/></svg>');
+            animation: float 25s ease-in-out infinite;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .about-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .about-story {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .story-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+        }
+        
+        .story-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .story-visual {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .story-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="story-pattern" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23ffffff" stroke-width="0.3" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23story-pattern)"/></svg>');
+        }
+        
+        .story-icon {
+            font-size: 8rem;
+            color: white;
+            opacity: 0.8;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .team-section {
+            padding: 100px 0;
+            background: var(--light-color);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 3rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover .member-avatar {
+            transform: scale(1.1) rotate(360deg);
+        }
+        
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .member-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .member-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .values-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .value-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .value-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark-color) 0%, #2c3e50 100%);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 30px 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        .contact-section {
+            padding: 100px 0;
+            background: var(--light-color);
+        }
+        
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .contact-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .about-title {
+                font-size: 2.5rem;
+            }
+            
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .story-visual {
+                height: 300px;
+            }
+            
+            .story-icon {
+                font-size: 6rem;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cube"></i>
+                <span>BlitzSMP</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Start</a>
+                </li>
+                <li class="nav-item">
+                    <a href="discord.html" class="nav-link">Discord</a>
+                </li>
+                <li class="nav-item">
+                    <a href="rules.html" class="nav-link">Regeln</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active">Über uns</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="about-content">
+            <h1 class="about-title">Über BlitzSMP</h1>
+            <p class="about-subtitle">Lerne unser Team kennen und erfahre mehr über unsere Mission</p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="about-story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>Unsere Geschichte</h2>
+                    <p>BlitzSMP wurde 2024 mit einer einfachen Mission gegründet: Einen Minecraft Survival Server zu schaffen, der die beste Spielerfahrung bietet und gleichzeitig eine freundliche, respektvolle Community aufbaut.</p>
+                    <p>Was als kleiner Server mit einigen Freunden begann, ist heute zu einer lebendigen Community mit über 100 aktiven Spielern gewachsen. Wir sind stolz darauf, einen Ort geschaffen zu haben, an dem Spieler aller Altersgruppen und Erfahrungslevel zusammenkommen können, um Minecraft in seiner reinsten Form zu genießen.</p>
+                    <p>Unser Team arbeitet kontinuierlich daran, den Server zu verbessern, neue Features hinzuzufügen und eine sichere, faire Spielumgebung für alle zu gewährleisten.</p>
+                </div>
+                <div class="story-visual">
+                    <div class="story-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Unser Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="member-name">Server Owner</div>
+                    <div class="member-role">Administrator</div>
+                    <div class="member-description">Verantwortlich für die Gesamtleitung des Servers, Entwicklung neuer Features und die strategische Ausrichtung von BlitzSMP.</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="member-name">Moderation Team</div>
+                    <div class="member-role">Moderatoren</div>
+                    <div class="member-description">Unser engagiertes Moderationsteam sorgt für Ordnung, beantwortet Fragen und unterstützt die Community bei allen Anliegen.</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="member-name">Technik Team</div>
+                    <div class="member-role">Entwickler</div>
+                    <div class="member-description">Unsere Techniker arbeiten kontinuierlich an der Verbesserung der Serverperformance und der Entwicklung neuer Features.</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="member-name">Community Manager</div>
+                    <div class="member-role">Community</div>
+                    <div class="member-description">Verantwortlich für Events, Community-Aktivitäten und die Pflege einer positiven Spielumgebung für alle Mitglieder.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Unsere Werte</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="value-title">Gemeinschaft</div>
+                    <div class="value-description">Wir glauben an die Kraft einer starken, unterstützenden Community, in der jeder willkommen ist und sich zu Hause fühlt.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="value-title">Fairness</div>
+                    <div class="value-description">Wir setzen uns für ein faires Spielerlebnis ein, in dem jeder die gleichen Chancen hat und Cheating nicht toleriert wird.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="value-title">Qualität</div>
+                    <div class="value-description">Wir streben nach der höchsten Qualität in allen Bereichen - von der Serverperformance bis zur Spielerbetreuung.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="value-title">Innovation</div>
+                    <div class="value-description">Wir sind stets offen für neue Ideen und arbeiten kontinuierlich daran, das Spielerlebnis zu verbessern.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="value-title">Respekt</div>
+                    <div class="value-description">Respekt ist die Grundlage unserer Community. Wir behandeln alle Mitglieder mit Würde und Höflichkeit.</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="value-title">Wachstum</div>
+                    <div class="value-description">Wir fördern das persönliche Wachstum unserer Spieler und entwickeln uns als Community stetig weiter.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Server Statistiken</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span>
+                    <div class="stat-label">Aktive Spieler</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="500">0</span>
+                    <div class="stat-label">Registrierte Mitglieder</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="24">0</span>
+                    <div class="stat-label">Stunden Online</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="99">0</span>
+                    <div class="stat-label">% Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Kontaktiere uns</h2>
+                <p>Hast du Fragen, Anregungen oder möchtest Teil unseres Teams werden? Wir freuen uns darauf, von dir zu hören!</p>
+                <div class="contact-buttons">
+                    <a href="discord.html" class="btn btn-primary btn-large">
+                        <i class="fab fa-discord"></i>
+                        Discord beitreten
+                    </a>
+                    <a href="rules.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-book"></i>
+                        Regeln lesen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BlitzSMP</h3>
+                    <p>Der beste Minecraft Survival Server Deutschlands</p>
+                    <div class="social-links">
+                        <a href="discord.html"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Start</a></li>
+                        <li><a href="discord.html">Discord</a></li>
+                        <li><a href="rules.html">Regeln</a></li>
+                        <li><a href="about.html">Über uns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="discord.html">Discord Support</a></li>
+                        <li><a href="rules.html">Serverregeln</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BlitzSMP. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Animate statistics
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 50);
+            });
+        }
+        
+        // Trigger animation when stats section is visible
+        const statsSection = document.querySelector('.stats-section');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
