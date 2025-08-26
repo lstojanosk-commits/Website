@@ -7,6 +7,620 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Minecraft&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Fallback styles for when external CSS doesn't load */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.98), rgba(45, 45, 45, 0.95));
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .navbar:hover {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.99), rgba(45, 45, 45, 0.97));
+            border-bottom: 2px solid rgba(76, 175, 80, 0.6);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 12px 20px;
+            border-radius: 25px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(76, 175, 80, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        .nav-link:hover {
+            color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.2);
+        }
+        
+        .nav-link.active {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+            color: #4CAF50;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            border-radius: 2px;
+            animation: gentlePulse 2s ease-in-out infinite;
+        }
+        
+        /* Enhanced Navigation Links with unique backgrounds */
+        .nav-link[href="index.html"] {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+        
+        .nav-link[href="index.html"]:hover {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+            border: 1px solid rgba(76, 175, 80, 0.4);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+        }
+        
+        .nav-link[href="discord.html"] {
+            background: linear-gradient(135deg, rgba(114, 137, 218, 0.1), rgba(114, 137, 218, 0.05));
+            border: 1px solid rgba(114, 137, 218, 0.2);
+        }
+        
+        .nav-link[href="discord.html"]:hover {
+            background: linear-gradient(135deg, rgba(114, 137, 218, 0.2), rgba(114, 137, 218, 0.1));
+            border: 1px solid rgba(114, 137, 218, 0.4);
+            box-shadow: 0 8px 20px rgba(114, 137, 218, 0.3);
+            color: #7289DA;
+        }
+        
+        .nav-link[href="rules.html"] {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 152, 0, 0.05));
+            border: 1px solid rgba(255, 152, 0, 0.2);
+        }
+        
+        .nav-link[href="rules.html"]:hover {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.1));
+            border: 1px solid rgba(255, 152, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
+            color: #FF9800;
+        }
+        
+        .nav-link[href="about.html"] {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.1), rgba(156, 39, 176, 0.05));
+            border: 1px solid rgba(156, 39, 176, 0.2);
+        }
+        
+        .nav-link[href="about.html"]:hover {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.2), rgba(156, 39, 176, 0.1));
+            border: 1px solid rgba(156, 39, 176, 0.4);
+            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.3);
+            color: #9C27B0;
+        }
+        
+        /* Active state enhancements */
+        .nav-link[href="index.html"].active {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.2));
+            border: 1px solid rgba(76, 175, 80, 0.6);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+        
+        .nav-link[href="discord.html"].active {
+            background: linear-gradient(135deg, rgba(114, 137, 218, 0.3), rgba(114, 137, 218, 0.2));
+            border: 1px solid rgba(114, 137, 218, 0.6);
+            box-shadow: 0 8px 25px rgba(114, 137, 218, 0.4);
+            color: #7289DA;
+        }
+        
+        .nav-link[href="rules.html"].active {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.3), rgba(255, 152, 0, 0.2));
+            border: 1px solid rgba(255, 152, 0, 0.6);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+            color: #FF9800;
+        }
+        
+        .nav-link[href="about.html"].active {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.3), rgba(156, 39, 176, 0.2));
+            border: 1px solid rgba(156, 39, 176, 0.6);
+            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.4);
+            color: #9C27B0;
+        }
+        
+        /* Floating particles for each nav link */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 8px;
+            height: 8px;
+            background: currentColor;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            opacity: 0.6;
+            transform: scale(1);
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        /* Glow effect for active links */
+        .nav-link.active {
+            animation: navGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes navGlow {
+            0%, 100% { 
+                box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            }
+            50% { 
+                box-shadow: 0 4px 25px rgba(76, 175, 80, 0.6);
+            }
+        }
+        
+        /* Icon animations for nav links */
+        .nav-link i {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover i {
+            transform: scale(1.2) rotate(5deg);
+            animation: iconBounce 0.6s ease-in-out;
+        }
+        
+        .nav-link.active i {
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes iconBounce {
+            0%, 100% { transform: scale(1.2) rotate(5deg); }
+            50% { transform: scale(1.4) rotate(-5deg); }
+        }
+        
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Unique icon colors for each page */
+        .nav-link[href="index.html"] i {
+            color: #4CAF50;
+        }
+        
+        .nav-link[href="discord.html"] i {
+            color: #7289DA;
+        }
+        
+        .nav-link[href="rules.html"] i {
+            color: #FF9800;
+        }
+        
+        .nav-link[href="about.html"] i {
+            color: #9C27B0;
+        }
+        
+        /* Enhanced hover effects with icon glow */
+        .nav-link[href="index.html"]:hover i {
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+        }
+        
+        .nav-link[href="discord.html"]:hover i {
+            text-shadow: 0 0 10px rgba(114, 137, 218, 0.8);
+        }
+        
+        .nav-link[href="rules.html"]:hover i {
+            text-shadow: 0 0 10px rgba(255, 152, 0, 0.8);
+        }
+        
+        .nav-link[href="about.html"]:hover i {
+            text-shadow: 0 0 10px rgba(156, 39, 176, 0.8);
+        }
+        
+        .server-info {
+            padding: 100px 0;
+            background: #1f1f1f;
+            position: relative;
+            z-index: 1;
+            margin-top: 70px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #ffffff !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-card {
+            background: #2a2a2a;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #444;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .info-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-card p {
+            color: #cccccc;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .info-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .status.online {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        
+        .version {
+            color: #FF9800;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .server-ip {
+            color: #4CAF50;
+            font-weight: 600;
+            font-size: 1.2rem;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+        
+        .player-count {
+            color: #2196F3;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Logo Animationen */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        @keyframes rainbowText {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        @keyframes gentleGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(76, 175, 80, 0.3); }
+            50% { box-shadow: 0 0 15px rgba(76, 175, 80, 0.6); }
+        }
+        
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 5px rgba(76, 175, 80, 0.3); }
+            50% { text-shadow: 0 0 20px rgba(76, 175, 80, 0.8); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes slideInLeft {
+            0% { transform: translateX(-150px) scale(0.8); opacity: 0; }
+            50% { transform: translateX(-50px) scale(0.9); opacity: 0.5; }
+            100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+        
+        @keyframes slideInUp {
+            0% { transform: translateY(100px) scale(0.8) rotateX(20deg); opacity: 0; }
+            50% { transform: translateY(50px) scale(0.9) rotateX(10deg); opacity: 0.5; }
+            100% { transform: translateY(0) scale(1) rotateX(0deg); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            0% { transform: translateX(150px) scale(0.8); opacity: 0; }
+            50% { transform: translateX(50px) scale(0.9); opacity: 0.5; }
+            100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+        
+        @keyframes fadeInScale {
+            0% { transform: scale(0.5) rotate(180deg); opacity: 0; }
+            50% { transform: scale(0.8) rotate(90deg); opacity: 0.5; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3) translateY(-100px); opacity: 0; }
+            50% { transform: scale(1.05) translateY(10px); opacity: 0.8; }
+            70% { transform: scale(0.9) translateY(-5px); opacity: 0.9; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            0% { transform: scale(0.1) rotate(45deg); opacity: 0; }
+            50% { transform: scale(0.5) rotate(22deg); opacity: 0.5; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes morphing {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4CAF50;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-logo:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+        }
+        
+        .nav-logo i {
+            font-size: 1.8rem;
+            animation: float 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-logo:hover i {
+            animation: rotate 1s ease-in-out infinite;
+        }
+        
+        .nav-logo span {
+            background: linear-gradient(45deg, #4CAF50, #2196F3, #FF9800);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-logo:hover span {
+            animation: rainbowText 2s linear infinite;
+        }
+        
+        /* Höhere Spezifität für Logo-Animationen */
+        .navbar .nav-container .nav-logo {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            font-size: 1.5rem !important;
+            font-weight: 700 !important;
+            color: #4CAF50 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .navbar .nav-container .nav-logo:hover {
+            transform: scale(1.1) !important;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.8) !important;
+        }
+        
+        .navbar .nav-container .nav-logo i {
+            font-size: 1.8rem !important;
+            animation: float 3s ease-in-out infinite !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .navbar .nav-container .nav-logo:hover i {
+            animation: rotate 1s ease-in-out infinite !important;
+        }
+        
+        .navbar .nav-container .nav-logo span {
+            background: linear-gradient(45deg, #4CAF50, #2196F3, #FF9800) !important;
+            background-size: 200% 200% !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            animation: shimmer 4s ease-in-out infinite !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .navbar .nav-container .nav-logo:hover span {
+            animation: rainbowText 2s linear infinite !important;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: rgba(76, 175, 80, 0.1);
+        }
+        
+        .hamburger:hover {
+            background: rgba(76, 175, 80, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            margin: 3px 0;
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hamburger.active .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+            background: #4CAF50;
+        }
+        
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+            background: #4CAF50;
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: linear-gradient(135deg, rgba(26, 26, 26, 0.98), rgba(45, 45, 45, 0.95));
+                backdrop-filter: blur(20px);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                gap: 20px;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Scroll Effect */
+        .navbar.scrolled {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.99), rgba(45, 45, 45, 0.98));
+            border-bottom: 2px solid rgba(76, 175, 80, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -18,16 +632,28 @@
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link active">Start</a>
+                    <a href="index.html" class="nav-link active" style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-home" style="font-size: 0.9rem; transition: all 0.3s ease;"></i>
+                        <span>Start</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="discord.html" class="nav-link">Discord</a>
+                    <a href="discord.html" class="nav-link" style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fab fa-discord" style="font-size: 0.9rem; transition: all 0.3s ease;"></i>
+                        <span>Discord</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="rules.html" class="nav-link">Regeln</a>
+                    <a href="rules.html" class="nav-link" style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-gavel" style="font-size: 0.9rem; transition: all 0.3s ease;"></i>
+                        <span>Regeln</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link">Über uns</a>
+                    <a href="about.html" class="nav-link" style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-info-circle" style="font-size: 0.9rem; transition: all 0.3s ease;"></i>
+                        <span>Über uns</span>
+                    </a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -39,32 +665,40 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="title-line">Willkommen bei</span>
-                    <span class="title-main">BlitzSMP</span>
+    <section class="hero" style="position: relative; overflow: hidden;">
+        <!-- Animated Background -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%); animation: morphing 20s ease-in-out infinite;"></div>
+        
+        <!-- Floating Particles -->
+        <div class="particle" style="position: absolute; top: 20%; left: 10%; width: 6px; height: 6px; background: #4CAF50; border-radius: 50%; animation: float 4s ease-in-out infinite;"></div>
+        <div class="particle" style="position: absolute; top: 60%; left: 80%; width: 4px; height: 4px; background: #2196F3; border-radius: 50%; animation: float 6s ease-in-out infinite; animation-delay: 1s;"></div>
+        <div class="particle" style="position: absolute; top: 30%; left: 70%; width: 8px; height: 8px; background: #FF9800; border-radius: 50%; animation: float 5s ease-in-out infinite; animation-delay: 2s;"></div>
+        <div class="particle" style="position: absolute; top: 80%; left: 20%; width: 5px; height: 5px; background: #9C27B0; border-radius: 50%; animation: float 7s ease-in-out infinite; animation-delay: 0.5s;"></div>
+        
+        <div class="hero-content" style="position: relative; z-index: 2;">
+            <div class="hero-text" style="animation: bounceIn 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);">
+                <h1 style="text-align: center; margin-bottom: 20px; color: white; font-size: 3rem; font-weight: 700; text-shadow: 0 4px 8px rgba(0,0,0,0.8);">
+                    <span style="animation: slideInLeft 1.2s ease-out 0.3s both; display: inline-block;">Willkommen bei</span> <span style="color: #4CAF50; font-size: 4rem; animation: shimmer 2s ease-in-out infinite, bounceIn 1.5s ease-out 0.6s both; display: inline-block;">BlitzSMP</span>
                 </h1>
-                <p class="hero-subtitle">Der beste Minecraft Survival Server Deutschlands</p>
-                <div class="hero-buttons">
-                    <a href="discord.html" class="btn btn-primary">
-                        <i class="fab fa-discord"></i>
+                <p class="hero-subtitle" style="font-size: 1.5rem; margin-bottom: 40px; opacity: 0.9; animation: slideInUp 1.2s ease-out 0.8s both; cursor: pointer; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);" onmouseover="this.style.animation='textGlow 1s ease-in-out infinite, slideInUp 1.2s ease-out 0.8s both'" onmouseout="this.style.animation='slideInUp 1.2s ease-out 0.8s both'">Der beste Minecraft Survival Server Deutschlands</p>
+                <div class="hero-buttons" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; animation: slideInUp 1.2s ease-out 1.2s both;">
+                    <a href="discord.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 15px; padding: 20px 40px; background: linear-gradient(45deg, #4CAF50, #45a049); color: white; text-decoration: none; border-radius: 50px; font-size: 1.2rem; font-weight: 600; border: none; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(0,0,0,0.3); position: relative; overflow: hidden; animation: gentleGlow 3s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-5px) scale(1.05)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.3)'">
+                        <i class="fab fa-discord" style="font-size: 1.5rem; animation: gentleFloat 2s ease-in-out infinite;"></i>
                         Discord beitreten
                     </a>
-                    <a href="#server-info" class="btn btn-secondary">
-                        <i class="fas fa-info-circle"></i>
+                    <a href="#server-info" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 15px; padding: 20px 40px; background: transparent; color: white; text-decoration: none; border-radius: 50px; font-size: 1.2rem; font-weight: 600; border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease; position: relative; overflow: hidden; animation: gentleGlow 3s ease-in-out infinite; animation-delay: 1s;" onmouseover="this.style.transform='translateY(-5px) scale(1.05)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.background='transparent'">
+                        <i class="fas fa-info-circle" style="font-size: 1.5rem; animation: gentleFloat 2s ease-in-out infinite; animation-delay: 1s;"></i>
                         Mehr erfahren
                     </a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="minecraft-world">
-                    <div class="block block-grass"></div>
-                    <div class="block block-dirt"></div>
-                    <div class="block block-stone"></div>
-                    <div class="block block-wood"></div>
-                    <div class="block block-leaves"></div>
+            <div class="hero-visual" style="animation: slideInRight 1.5s ease-out 0.5s both;">
+                <div class="minecraft-world" style="animation: float 6s ease-in-out infinite;">
+                    <div class="block block-grass" style="animation: bounceIn 1s ease-out 1.5s both, pulse 3s ease-in-out infinite 2.5s;"></div>
+                    <div class="block block-dirt" style="animation: bounceIn 1s ease-out 1.7s both, pulse 3s ease-in-out infinite 2.7s;"></div>
+                    <div class="block block-stone" style="animation: bounceIn 1s ease-out 1.9s both, pulse 3s ease-in-out infinite 2.9s;"></div>
+                    <div class="block block-wood" style="animation: bounceIn 1s ease-out 2.1s both, pulse 3s ease-in-out infinite 3.1s;"></div>
+                    <div class="block block-leaves" style="animation: bounceIn 1s ease-out 2.3s both, pulse 3s ease-in-out infinite 3.3s;"></div>
                 </div>
             </div>
         </div>
@@ -74,96 +708,119 @@
     </section>
 
     <!-- Server Info Section -->
-    <section id="server-info" class="server-info">
-        <div class="container">
-            <h2 class="section-title">Server Informationen</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-icon">
+    <section id="server-info" style="padding: 100px 0; background: #1f1f1f; color: white; position: relative; z-index: 1; margin-top: 70px;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2 style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 60px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); animation: gentleFloat 4s ease-in-out infinite;">Server Informationen</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="background: #2a2a2a; padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 2px solid #444; min-height: 200px; display: flex; flex-direction: column; justify-content: center; animation: gentlePulse 6s ease-in-out infinite;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: white; animation: gentleFloat 3s ease-in-out infinite;">
                         <i class="fas fa-server"></i>
                     </div>
-                    <h3>Server Status</h3>
-                    <p class="status online">Online</p>
-                    <p>24/7 verfügbar</p>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px; color: #ffffff;">Server Status</h3>
+                    <p style="color: #4CAF50; font-weight: 600; margin-bottom: 10px;">Online</p>
+                    <p style="color: #cccccc; margin-bottom: 10px;">24/7 verfügbar</p>
                 </div>
-                <div class="info-card">
-                    <div class="info-icon">
+                <div style="background: #2a2a2a; padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 2px solid #444; min-height: 200px; display: flex; flex-direction: column; justify-content: center; animation: gentlePulse 6s ease-in-out infinite; animation-delay: 0.5s;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: white; animation: gentleFloat 3s ease-in-out infinite; animation-delay: 0.5s;">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px; color: #ffffff;">Minecraft Java</h3>
+                    <p style="color: #FF9800; font-weight: 600; font-size: 1.2rem; margin-bottom: 10px;">Version 1.21.4</p>
+                    <p style="color: #cccccc; margin-bottom: 10px;">Neueste Version</p>
+                </div>
+                <div style="background: #2a2a2a; padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 2px solid #444; min-height: 200px; display: flex; flex-direction: column; justify-content: center; animation: gentlePulse 6s ease-in-out infinite; animation-delay: 1s;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: white; animation: gentleFloat 3s ease-in-out infinite; animation-delay: 1s;">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px; color: #ffffff;">Server IP</h3>
+                    <p style="color: #4CAF50; font-weight: 600; font-size: 1.2rem; font-family: 'Courier New', monospace; letter-spacing: 1px; margin-bottom: 10px;">BlitzSMP.de</p>
+                    <p style="color: #cccccc; margin-bottom: 10px;">Direkt verbinden</p>
+                </div>
+                <div style="background: #2a2a2a; padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border: 2px solid #444; min-height: 200px; display: flex; flex-direction: column; justify-content: center; animation: gentlePulse 6s ease-in-out infinite; animation-delay: 1.5s;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: white; animation: gentleFloat 3s ease-in-out infinite; animation-delay: 1.5s;">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Community</h3>
-                    <p class="player-count">100+ Spieler</p>
-                    <p>Aktive Community</p>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Anti-Cheat</h3>
-                    <p>Moderne Schutzsysteme</p>
-                    <p>Faire Spielumgebung</p>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Plugins</h3>
-                    <p>Optimierte Performance</p>
-                    <p>Beste Spielerfahrung</p>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px; color: #ffffff;">Player Limit</h3>
+                    <p style="color: #2196F3; font-weight: 600; font-size: 1.2rem; margin-bottom: 10px;">500 Spieler max.</p>
+                    <p style="color: #cccccc; margin-bottom: 10px;">Große Community</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Was macht uns besonders?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); position: relative; overflow: hidden;">
+        <!-- Animated Background -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"features-pattern\" width=\"30\" height=\"30\" patternUnits=\"userSpaceOnUse\"><circle cx=\"15\" cy=\"15\" r=\"1\" fill=\"%234CAF50\" opacity=\"0.1\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23features-pattern)\"/></svg>'); animation: float 20s ease-in-out infinite;"></div>
+        
+        <!-- Floating Particles -->
+        <div style="position: absolute; top: 20%; left: 10%; width: 6px; height: 6px; background: #4CAF50; border-radius: 50%; animation: float 4s ease-in-out infinite; opacity: 0.6;"></div>
+        <div style="position: absolute; top: 60%; left: 80%; width: 4px; height: 4px; background: #2196F3; border-radius: 50%; animation: float 6s ease-in-out infinite; animation-delay: 1s; opacity: 0.4;"></div>
+        <div style="position: absolute; top: 30%; left: 70%; width: 8px; height: 8px; background: #FF9800; border-radius: 50%; animation: float 5s ease-in-out infinite; animation-delay: 2s; opacity: 0.5;"></div>
+        
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+            <h2 style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 80px; color: #ffffff; text-shadow: 0 4px 8px rgba(0,0,0,0.5); background: linear-gradient(45deg, #4CAF50, #2196F3, #4CAF50); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">Was macht uns besonders?</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)'; this.style.boxShadow='0 25px 50px rgba(33, 150, 243, 0.3)'; this.style.borderColor='#2196F3'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444'">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #2196F3, #1976D2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3>Survival Experience</h3>
-                    <p>Erlebe das klassische Minecraft Survival mit einer aktiven Community. Baue, erkunde und überlebe zusammen!</p>
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Pure Survival Experience</h3>
+                    <p style="color: #cccccc; line-height: 1.8; font-size: 1.1rem; margin-bottom: 0;">Erlebe Minecraft Survival in seiner reinsten Form! Bei uns findest du keine Pay-to-Win Features oder übermächtige Plugins. Hier zählt nur dein Können, deine Kreativität und dein Überlebenswille. Baue gigantische Städte, erkunde unendliche Welten und überlebe gemeinsam mit unserer Community!</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
+                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; animation-delay: 0.5s;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)'; this.style.boxShadow='0 25px 50px rgba(76, 175, 80, 0.3)'; this.style.borderColor='#4CAF50'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444'">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; animation-delay: 0.5s; box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Friendly Community</h3>
-                    <p>Unsere Community ist bekannt für ihre Freundlichkeit und Hilfsbereitschaft. Neue Spieler sind immer willkommen!</p>
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Warmherzige Community</h3>
+                    <p style="color: #cccccc; line-height: 1.8; font-size: 1.1rem; margin-bottom: 0;">Unsere Community ist das Herz von BlitzSMP! Hier findest du Spieler, die sich gegenseitig unterstützen, zusammen bauen und echte Freundschaften schließen. Neue Spieler werden mit offenen Armen empfangen und erfahren sofortige Hilfe beim Start. Bei uns ist jeder willkommen, egal ob Anfänger oder Veteran!</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
+                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; animation-delay: 1s;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)'; this.style.boxShadow='0 25px 50px rgba(255, 152, 0, 0.3)'; this.style.borderColor='#FF9800'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444'">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #FF9800, #F57C00); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; animation-delay: 1s; box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);">
                         <i class="fas fa-crown"></i>
                     </div>
-                    <h3>Events & Challenges</h3>
-                    <p>Regelmäßige Events, Challenges und Wettbewerbe halten den Server spannend und abwechslungsreich.</p>
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Spannende Events & Challenges</h3>
+                    <p style="color: #cccccc; line-height: 1.8; font-size: 1.1rem; margin-bottom: 0;">Langweile gibt es bei uns nicht! Regelmäßige Events wie Build-Wettbewerbe, PvP-Turniere, Scavenger Hunts und saisonale Challenges halten den Server lebendig. Gewinne tolle Preise, zeige dein Können und werde Teil unserer Event-Geschichte. Jedes Event ist einzigartig und sorgt für unvergessliche Momente!</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
+                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; animation-delay: 1.5s;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)'; this.style.boxShadow='0 25px 50px rgba(156, 39, 176, 0.3)'; this.style.borderColor='#9C27B0'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444'">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #9C27B0, #7B1FA2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; animation-delay: 1.5s; box-shadow: 0 8px 25px rgba(156, 39, 176, 0.3);">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Faire & Sichere Umgebung</h3>
+                    <p style="color: #cccccc; line-height: 1.8; font-size: 1.1rem; margin-bottom: 0;">Bei BlitzSMP steht Fairplay an erster Stelle! Unser erfahrenes Team sorgt für eine sichere und gerechte Spielumgebung. Moderne Anti-Cheat Systeme schützen vor Cheatern, während unsere klaren Regeln für ein respektvolles Miteinander sorgen. Hier kann jeder in Ruhe spielen und sich entfalten!</p>
+                </div>
+                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; animation-delay: 2s;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)'; this.style.boxShadow='0 25px 50px rgba(233, 30, 99, 0.3)'; this.style.borderColor='#E91E63'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444'">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #E91E63, #C2185B); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; animation-delay: 2s; box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Optimale Performance</h3>
+                    <p style="color: #cccccc; line-height: 1.8; font-size: 1.1rem; margin-bottom: 0;">Genieße flüssiges Gameplay ohne Lags! Unser Server läuft auf hochmodernen Hardware-Systemen mit 24/7 Überwachung. Optimierte Plugins und regelmäßige Updates garantieren die beste Performance. Egal ob du alleine baust oder mit 500 Spielern gleichzeitig spielst - bei uns läuft alles rund!</p>
+                </div>
+                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; animation-delay: 2.5s;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)'; this.style.boxShadow='0 25px 50px rgba(0, 188, 212, 0.3)'; this.style.borderColor='#00BCD4'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444'">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #00BCD4, #0097A7); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; animation-delay: 2.5s; box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3>24/7 Support</h3>
-                    <p>Unser Team ist rund um die Uhr für dich da. Bei Fragen oder Problemen helfen wir gerne weiter!</p>
+                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">24/7 Support & Hilfe</h3>
+                    <p style="color: #cccccc; line-height: 1.8; font-size: 1.1rem; margin-bottom: 0;">Unser engagiertes Team ist rund um die Uhr für dich da! Egal ob technische Probleme, Fragen zu den Regeln oder einfach nur ein nettes Gespräch - wir helfen dir gerne weiter. Über Discord erreichst du uns sofort und bekommst schnell und freundlich Unterstützung. Bei uns bist du nie alleine!</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Bereit zum Spielen?</h2>
-                <p>Tritt unserer Community bei und werde Teil von BlitzSMP!</p>
-                <div class="cta-buttons">
-                    <a href="discord.html" class="btn btn-primary btn-large">
-                        <i class="fab fa-discord"></i>
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #4CAF50, #45a049); color: white; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.05);"></div>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+            <div style="text-align: center;">
+                <h2 style="font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; text-shadow: 0 4px 8px rgba(0,0,0,0.3); animation: gentleFloat 4s ease-in-out infinite;">Bereit zum Spielen?</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.95; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto; animation: gentlePulse 6s ease-in-out infinite;">Tritt unserer Community bei und werde Teil von BlitzSMP! Erlebe Minecraft Survival wie nie zuvor mit einer aktiven, freundlichen Community.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="discord.html" style="display: inline-flex; align-items: center; gap: 15px; padding: 20px 40px; background: rgba(255,255,255,0.15); color: white; text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease; backdrop-filter: blur(10px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); animation: gentleGlow 3s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255,255,255,0.25)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='rgba(255,255,255,0.15)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.2)';">
+                        <i class="fab fa-discord" style="font-size: 1.3rem; animation: gentleFloat 2s ease-in-out infinite;"></i>
                         Discord Server beitreten
                     </a>
-                    <a href="rules.html" class="btn btn-outline btn-large">
-                        <i class="fas fa-book"></i>
+                    <a href="rules.html" style="display: inline-flex; align-items: center; gap: 15px; padding: 20px 40px; background: transparent; color: white; text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; border: 2px solid rgba(255,255,255,0.5); transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(0,0,0,0.2); animation: gentleGlow 3s ease-in-out infinite; animation-delay: 1s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255,255,255,0.1)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='transparent'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.2)';">
+                        <i class="fas fa-book" style="font-size: 1.3rem; animation: gentleFloat 2s ease-in-out infinite; animation-delay: 1s;"></i>
                         Serverregeln lesen
                     </a>
                 </div>
@@ -180,8 +837,6 @@
                     <p>Der beste Minecraft Survival Server Deutschlands</p>
                     <div class="social-links">
                         <a href="discord.html"><i class="fab fa-discord"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -198,17 +853,101 @@
                     <ul>
                         <li><a href="discord.html">Discord Support</a></li>
                         <li><a href="rules.html">Serverregeln</a></li>
-                        <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 BlitzSMP. Alle Rechte vorbehalten.</p>
+                <p>
+                    <span class="copyright-brand">&copy; BlitzSMP.de</span>
+                    <span class="developer-info">Alles programmiert und entwickelt von <span class="discord-tag">Dc: @20xu</span></span>
+                </p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Enhanced Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Hamburger menu toggle
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Add ripple effect to nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+            
+            // Add hover sound effect (optional)
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    link.style.transform = 'translateY(-2px) scale(1.05)';
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    link.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+    <style>
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(76, 175, 80, 0.3);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
 </html>
 
