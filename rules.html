@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serverregeln - BlitzSMP</title>
+    <title>Über uns - BlitzSMP</title>
     
     <!-- Open Graph Meta Tags für Social Media -->
-    <meta property="og:title" content="Serverregeln - BlitzSMP">
-    <meta property="og:description" content="Lerne die wichtigsten Regeln des BlitzSMP Servers kennen! Faire Spielweise, respektvoller Umgang und eine sichere Umgebung für alle Spieler.">
+    <meta property="og:title" content="Über uns - BlitzSMP">
+    <meta property="og:description" content="Lerne das BlitzSMP Team kennen! Entdecke unsere Werte, unser Team und wie wir die beste Minecraft Survival Experience schaffen.">
     <meta property="og:image" content="https://i.imgur.com/8XZqL2N.png">
-    <meta property="og:url" content="https://blitzsmp.de/rules.html">
+    <meta property="og:url" content="https://blitzsmp.de/about.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BlitzSMP">
     <meta property="og:locale" content="de_DE">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Serverregeln - BlitzSMP">
-    <meta name="twitter:description" content="Lerne die wichtigsten Regeln des BlitzSMP Servers kennen! Faire Spielweise, respektvoller Umgang und eine sichere Umgebung für alle Spieler.">
+    <meta name="twitter:title" content="Über uns - BlitzSMP">
+    <meta name="twitter:description" content="Lerne das BlitzSMP Team kennen! Entdecke unsere Werte, unser Team und wie wir die beste Minecraft Survival Experience schaffen.">
     <meta name="twitter:image" content="https://i.imgur.com/8XZqL2N.png">
     
     <!-- Weitere Meta Tags -->
-    <meta name="description" content="Lerne die wichtigsten Regeln des BlitzSMP Servers kennen! Faire Spielweise, respektvoller Umgang und eine sichere Umgebung.">
-    <meta name="keywords" content="Regeln, Serverregeln, BlitzSMP, Minecraft, Fairplay, Community">
+    <meta name="description" content="Lerne das BlitzSMP Team kennen! Entdecke unsere Werte, unser Team und wie wir die beste Minecraft Survival Experience schaffen.">
+    <meta name="keywords" content="Über uns, Team, BlitzSMP, Minecraft, Community, Werte">
     <meta name="author" content="BlitzSMP Team">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="styles.css">
@@ -36,7 +36,7 @@
             width: 100%;
             background: linear-gradient(135deg, rgba(26, 26, 26, 0.98), rgba(45, 45, 45, 0.95));
             backdrop-filter: blur(20px);
-            border-bottom: 2px solid rgba(255, 152, 0, 0.3);
+            border-bottom: 2px solid rgba(156, 39, 176, 0.3);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -44,7 +44,7 @@
         
         .navbar:hover {
             background: linear-gradient(135deg, rgba(26, 26, 26, 0.99), rgba(45, 45, 45, 0.97));
-            border-bottom: 2px solid rgba(255, 152, 0, 0.6);
+            border-bottom: 2px solid rgba(156, 39, 176, 0.6);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
         }
         
@@ -93,7 +93,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 152, 0, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(156, 39, 176, 0.2), transparent);
             transition: left 0.5s ease;
         }
         
@@ -102,16 +102,15 @@
         }
         
         .nav-link:hover {
-            color: #FF9800;
-            background: rgba(255, 152, 0, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.2);
+            color: #9C27B0;
+            background: rgba(156, 39, 176, 0.1);
+            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.2);
         }
         
         .nav-link.active {
-            background: linear-gradient(135deg, rgba(255, 152, 0, 0.3), rgba(255, 152, 0, 0.2));
-            color: #FF9800;
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.3), rgba(156, 39, 176, 0.2));
+            color: #9C27B0;
+            box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
         }
         
         .nav-link.active::after {
@@ -122,7 +121,7 @@
             transform: translateX(-50%);
             width: 30px;
             height: 3px;
-            background: linear-gradient(90deg, #FF9800, #F57C00);
+            background: linear-gradient(90deg, #9C27B0, #7B1FA2);
             border-radius: 2px;
             animation: gentlePulse 2s ease-in-out infinite;
         }
@@ -212,18 +211,14 @@
         }
         
         .nav-link:hover i {
-            transform: scale(1.2) rotate(5deg);
-            animation: iconBounce 0.6s ease-in-out;
+            transform: scale(1.1);
         }
         
         .nav-link.active i {
             animation: iconPulse 2s ease-in-out infinite;
         }
         
-        @keyframes iconBounce {
-            0%, 100% { transform: scale(1.2) rotate(5deg); }
-            50% { transform: scale(1.4) rotate(-5deg); }
-        }
+
         
         @keyframes iconPulse {
             0%, 100% { transform: scale(1); }
@@ -269,9 +264,9 @@
             text-shadow: 0 0 10px rgba(156, 39, 176, 0.8);
         }
         
-        .rules-hero {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            min-height: 40vh;
+        .about-hero {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            min-height: 50vh;
             display: flex;
             align-items: center;
             position: relative;
@@ -280,23 +275,9 @@
         
 
         
-        .rules-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="rules-grid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 15" fill="none" stroke="%23ffffff" stroke-width="0.3" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23rules-grid)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
+
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .rules-content {
+        .about-content {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -306,292 +287,126 @@
             z-index: 2;
         }
         
-        .rules-title {
+        .about-title {
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
-        .rules-subtitle {
-            font-size: 1.2rem;
+        .about-subtitle {
+            font-size: 1.3rem;
             opacity: 0.9;
         }
         
-        .rules-container {
-            padding: 80px 0;
+        .about-story {
+            padding: 100px 0;
             background: var(--bg-primary);
+        }
+        
+        .story-content {
+            display: block;
+        }
+        
+        .story-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+        }
+        
+        .story-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
         }
         
 
         
-        .rules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .rule-category {
-            background: var(--bg-secondary);
+        .story-visual {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 2px solid var(--border-primary);
-        }
-        
-        .rule-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            border-color: var(--primary-color);
-        }
-        
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--primary-color);
-        }
-        
-        .category-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .story-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="story-pattern" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23ffffff" stroke-width="0.3" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23story-pattern)"/></svg>');
+        }
+        
+        .story-icon {
+            font-size: 8rem;
             color: white;
+            opacity: 0.8;
+            animation: pulse 2s ease-in-out infinite;
         }
         
-        .category-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--dark-color);
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
         
-        .rules-list {
-            list-style: none;
-            padding: 0;
-        }
+
         
-        .rule-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: var(--bg-tertiary);
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-primary);
-        }
+
         
-        .rule-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+
         
-        .rule-icon {
-            width: 30px;
-            height: 30px;
-            background: #e74c3c;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-        
-        .rule-text {
-            color: var(--text-color);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-        
-        .rule-item.allowed .rule-icon {
-            background: var(--primary-color);
-        }
-        
-        .rule-item.warning .rule-icon {
-            background: #f39c12;
-        }
-        
-        .rules-important {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 20px;
-            margin: 60px 0;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
-        }
-        
-        .rules-important h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        
-        .rules-important p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-        
-        .rules-navigation {
-            background: var(--bg-secondary);
-            padding: 40px 0;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 30px;
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 50px;
-            border: 2px solid var(--border-color);
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        
-        .nav-btn:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-        
-        .nav-btn.primary {
-            background: var(--gradient-primary);
-            color: white;
-            border-color: var(--primary-color);
-        }
-        
-        .nav-btn.primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
-        }
+
         
         @media (max-width: 768px) {
-            .rules-title {
+            .about-title {
                 font-size: 2.5rem;
             }
             
-            .rules-grid {
+
+            
+            .team-table {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 20px;
             }
             
-            .rule-category {
-                padding: 30px 20px;
+            .team-category {
+                padding: 20px;
             }
             
-            .category-title {
-                font-size: 1.5rem;
+            .team-category h3 {
+                font-size: 1.2rem;
             }
             
-            .nav-buttons {
+            .contact-buttons {
                 flex-direction: column;
                 align-items: center;
-            }
-            
-            .rules-important {
-                padding: 30px 20px;
-                margin: 40px 0;
-            }
-            
-            .rules-important h3 {
-                font-size: 1.5rem;
             }
         }
         
         @media (max-width: 480px) {
-            .rules-title {
-                font-size: 2rem;
+            .team-table {
+                gap: 15px;
             }
             
-            .rules-subtitle {
-                font-size: 1rem;
+            .team-category {
+                padding: 15px;
             }
             
-            .rule-category {
-                padding: 25px 15px;
+            .team-category h3 {
+                font-size: 1.1rem;
             }
             
-            .category-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-            
-            .category-title {
-                font-size: 1.3rem;
-            }
-            
-            .rule-item {
-                padding: 12px;
-                margin-bottom: 15px;
-            }
-            
-            .rule-text {
+            .team-category li {
                 font-size: 0.9rem;
-            }
-        }
-        
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
-        }
-        
-        .back-to-top.show {
-            display: flex;
-        }
-        
-        @media (max-width: 768px) {
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-                font-size: 1rem;
+                padding: 10px 0;
             }
         }
     </style>
@@ -618,13 +433,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="rules.html" class="nav-link active">
+                    <a href="rules.html" class="nav-link">
                         <i class="fas fa-gavel"></i>
                         <span>Regeln</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link">
+                    <a href="about.html" class="nav-link active">
                         <i class="fas fa-info-circle"></i>
                         <span>Über uns</span>
                     </a>
@@ -638,233 +453,221 @@
         </div>
     </nav>
 
-    <!-- Rules Hero Section -->
-    <section class="rules-hero" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); min-height: 50vh; display: flex; align-items: center; position: relative; overflow: hidden; margin-top: 70px;">
-        <!-- Animated Background -->
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"rules-pattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\"><circle cx=\"10\" cy=\"10\" r=\"1\" fill=\"%23FF9800\" opacity=\"0.1\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23rules-pattern)\"/></svg>'); animation: float 20s ease-in-out infinite;"></div>
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="about-content">
+            <h1 class="about-title">Über BlitzSMP</h1>
+            <p class="about-subtitle">Lerne unser Team kennen und erfahre mehr über unsere Mission</p>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); position: relative; overflow: hidden;">
+
         
         <!-- Floating Particles -->
-        <div style="position: absolute; top: 20%; left: 10%; width: 6px; height: 6px; background: #FF9800; border-radius: 50%; animation: float 4s ease-in-out infinite; opacity: 0.6;"></div>
-        <div style="position: absolute; top: 60%; left: 80%; width: 4px; height: 4px; background: #F57C00; border-radius: 50%; animation: float 6s ease-in-out infinite; animation-delay: 1s; opacity: 0.4;"></div>
-        <div style="position: absolute; top: 30%; left: 70%; width: 8px; height: 8px; background: #FF9800; border-radius: 50%; animation: float 5s ease-in-out infinite; animation-delay: 2s; opacity: 0.5;"></div>
-        
-        <div class="rules-content" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center; color: white; position: relative; z-index: 2;">
-            <h1 class="rules-title" style="font-size: 4rem; font-weight: 700; margin-bottom: 20px; text-shadow: 0 4px 8px rgba(0,0,0,0.5); background: linear-gradient(45deg, #FF9800, #F57C00, #FF9800); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">📜 BlitzSMP – Serverregeln</h1>
-            <p class="rules-subtitle" style="font-size: 1.4rem; opacity: 0.9; margin-bottom: 30px; line-height: 1.6;">Bitte lies und befolge diese Regeln sorgfältig für ein faires und angenehmes Spielerlebnis</p>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
-                <div style="background: rgba(255, 152, 0, 0.1); padding: 15px 30px; border-radius: 25px; border: 2px solid rgba(255, 152, 0, 0.3); backdrop-filter: blur(10px);">
-                    <i class="fas fa-shield-alt" style="color: #FF9800; font-size: 1.2rem; margin-right: 10px;"></i>
-                    <span style="font-weight: 600;">Fairplay garantiert</span>
-                </div>
-                <div style="background: rgba(255, 152, 0, 0.1); padding: 15px 30px; border-radius: 25px; border: 2px solid rgba(255, 152, 0, 0.3); backdrop-filter: blur(10px);">
-                    <i class="fas fa-users" style="color: #FF9800; font-size: 1.2rem; margin-right: 10px;"></i>
-                    <span style="font-weight: 600;">Respektvolle Community</span>
-                </div>
-                <div style="background: rgba(255, 152, 0, 0.1); padding: 15px 30px; border-radius: 25px; border: 2px solid rgba(255, 152, 0, 0.3); backdrop-filter: blur(10px);">
-                    <i class="fas fa-gavel" style="color: #FF9800; font-size: 1.2rem; margin-right: 10px;"></i>
-                    <span style="font-weight: 600;">Klare Richtlinien</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rules Container -->
-    <section class="rules-container">
-        <div class="container">
-
-            
-            <div class="rules-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 60px;">
-                <!-- Client & Mod Rules -->
-                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(255, 152, 0, 0.3)'; this.style.borderColor='#FF9800'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444'">
-                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #FF9800, #F57C00); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">⚔️ Client- & Mod-Regeln</h3>
-                    <ul style="list-style: none; padding: 0; text-align: left;">
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Keine gehackten Clients oder Cheats</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Keine Mods, die Bewegung, Inventar oder automatisches Platzieren erleichtern</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Keine Health-Anzeigen, Radar, ESP, Freecam oder Auto-Clicker</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Keine Makros, Scripts oder Crafting-Modifikationen</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Bugs dürfen nicht ausgenutzt werden</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Keine Item-Duplikation</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Kein Handel gegen echtes Geld oder externe Belohnungen</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Maximal 2 Accounts gleichzeitig benutzen</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Keine Seeds verwenden, die Vorteile bringen</div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Behavior Rules -->
-                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; animation-delay: 0.5s;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(156, 39, 176, 0.3)'; this.style.borderColor='#9C27B0'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444'">
-                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #9C27B0, #7B1FA2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; animation-delay: 0.5s; box-shadow: 0 8px 25px rgba(156, 39, 176, 0.3);">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">💬 Verhaltensregeln</h3>
-                    <ul style="list-style: none; padding: 0; text-align: left;">
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Sei respektvoll: Kein Spam, keine Belästigung, keine Hassreden oder Todesdrohungen</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Keine privaten Informationen anderer weitergeben</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Gib dich nicht als Staff-Mitglied aus</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Kein Bann-Evasion oder Umgehen von Strafen</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #e74c3c; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Denk nach, bevor du etwas tust – auch Dinge, die hier nicht explizit stehen, können verboten sein</div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- General Rules -->
-                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; animation-delay: 1s;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(76, 175, 80, 0.3)'; this.style.borderColor='#4CAF50'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444'">
-                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; animation-delay: 1s; box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">🌐 Allgemeines</h3>
-                    <ul style="list-style: none; padding: 0; text-align: left;">
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #4CAF50; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Alle Bugs, Glitches oder Cheater sofort melden</div>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 4px solid #4CAF50; transition: all 0.3s ease;" onmouseover="this.style.transform='translateX(5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(255,255,255,0.05)'">
-                            <div style="width: 30px; height: 30px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <div style="color: #cccccc; line-height: 1.6; font-size: 0.95rem;">Respektiere die Community und halte den Chat und das Spiel fair für alle</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Important Notice -->
-            <div style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 50px; border-radius: 25px; margin: 80px 0; text-align: center; box-shadow: 0 15px 40px rgba(231, 76, 60, 0.4); position: relative; overflow: hidden;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-                <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #e74c3c, #c0392b, #e74c3c); animation: shimmer 3s ease-in-out infinite;"></div>
-                <h3 style="font-size: 2.5rem; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">✅ Zustimmung</h3>
-                <p style="font-size: 1.2rem; opacity: 0.95; line-height: 1.8; max-width: 800px; margin: 0 auto;">Mit dem Betreten des Discord-Servers und/oder des Minecraft-Servers stimmst du automatisch diesen Regeln zu. Verstöße gegen diese Regeln können zu Verwarnungen, temporären oder permanenten Banns führen.</p>
-                <div style="margin-top: 30px;">
-                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-right: 15px; animation: gentlePulse 2s ease-in-out infinite;"></i>
-                    <span style="font-weight: 600; font-size: 1.1rem;">Diese Regeln sind bindend und werden strikt durchgesetzt!</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Rules Summary -->
-    <section style="padding: 80px 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"summary-pattern\" width=\"25\" height=\"25\" patternUnits=\"userSpaceOnUse\"><circle cx=\"12.5\" cy=\"12.5\" r=\"1\" fill=\"%23FF9800\" opacity=\"0.05\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23summary-pattern)\"/></svg>'); animation: float 25s ease-in-out infinite;"></div>
+        <div style="position: absolute; top: 20%; left: 10%; width: 6px; height: 6px; background: #9C27B0; border-radius: 50%; animation: float 4s ease-in-out infinite; opacity: 0.6;"></div>
+        <div style="position: absolute; top: 60%; left: 80%; width: 4px; height: 4px; background: #7B1FA2; border-radius: 50%; animation: float 6s ease-in-out infinite; animation-delay: 1s; opacity: 0.4;"></div>
+        <div style="position: absolute; top: 30%; left: 70%; width: 8px; height: 8px; background: #9C27B0; border-radius: 50%; animation: float 5s ease-in-out infinite; animation-delay: 2s; opacity: 0.5;"></div>
         
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
-            <h2 style="text-align: center; font-size: 3rem; font-weight: 700; margin-bottom: 60px; color: #ffffff; text-shadow: 0 4px 8px rgba(0,0,0,0.5); background: linear-gradient(45deg, #FF9800, #F57C00, #FF9800); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">📋 Regeln auf einen Blick</h2>
+            <h2 style="text-align: center; font-size: 3.5rem; font-weight: 700; margin-bottom: 30px; color: #ffffff; text-shadow: 0 4px 8px rgba(0,0,0,0.5); background: linear-gradient(45deg, #9C27B0, #7B1FA2, #9C27B0); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">👥 Unser Team</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: #cccccc; margin-bottom: 60px; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">Hier findest du alle unsere Teammitglieder, die täglich daran arbeiten, BlitzSMP zu einem der besten Minecraft Server zu machen.</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px;">
-                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 30px; border-radius: 15px; text-align: center; border: 2px solid #444; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#e74c3c'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#444'">
-                    <div style="width: 60px; height: 60px; background: #e74c3c; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; color: white;">
-                        <i class="fas fa-ban"></i>
-                    </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 15px; color: #ffffff;">Verboten</h3>
-                    <p style="color: #cccccc; font-size: 0.9rem;">Cheats, Mods, Bugs ausnutzen, unhöfliches Verhalten</p>
-                </div>
-                
-                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 30px; border-radius: 15px; text-align: center; border: 2px solid #444; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#4CAF50'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#444'">
-                    <div style="width: 60px; height: 60px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; color: white;">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 15px; color: #ffffff;">Erlaubt</h3>
-                    <p style="color: #cccccc; font-size: 0.9rem;">Vanilla Minecraft, respektvolles Verhalten, Bugs melden</p>
-                </div>
-                
-                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 30px; border-radius: 15px; text-align: center; border: 2px solid #444; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#FF9800'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='#444'">
-                    <div style="width: 60px; height: 60px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; color: white;">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 15px; color: #ffffff;">Konsequenzen</h3>
-                    <p style="color: #cccccc; font-size: 0.9rem;">Verwarnungen, temporäre oder permanente Banns</p>
+            <div class="team-table" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                <!-- Team-Tabelle wird dynamisch von team-loader.js geladen -->
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px; color: #cccccc; font-size: 1.1rem;">
+                    <i style="font-size: 3rem; margin-bottom: 20px; color: #9C27B0; animation: spin 1s linear infinite;"></i>
+                    <span>Lade Team-Daten...</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Navigation Section -->
-    <section style="background: linear-gradient(135deg, #2a2a2a 0%, #333333 100%); padding: 60px 0;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="discord.html" style="display: inline-flex; align-items: center; gap: 15px; padding: 20px 40px; background: linear-gradient(135deg, #7289DA, #5865F2); color: white; text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; border: none; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(114, 137, 218, 0.3);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(114, 137, 218, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(114, 137, 218, 0.3)'">
-                    <i class="fab fa-discord" style="font-size: 1.3rem;"></i>
-                    Discord beitreten
-                </a>
-                <a href="index.html" style="display: inline-flex; align-items: center; gap: 15px; padding: 20px 40px; background: transparent; color: white; text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='transparent'">
-                    <i class="fas fa-home" style="font-size: 1.3rem;"></i>
-                    Zurück zur Startseite
-                </a>
-                <a href="about.html" style="display: inline-flex; align-items: center; gap: 15px; padding: 20px 40px; background: transparent; color: white; text-decoration: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.background='transparent'">
-                    <i class="fas fa-info-circle" style="font-size: 1.3rem;"></i>
-                    Über uns
-                </a>
+
+
+    <!-- Our Values -->
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); position: relative; overflow: hidden;">
+
+        
+        <!-- Floating Particles -->
+        <div style="position: absolute; top: 15%; left: 15%; width: 5px; height: 5px; background: #9C27B0; border-radius: 50%; animation: float 5s ease-in-out infinite; opacity: 0.4;"></div>
+        <div style="position: absolute; top: 70%; left: 85%; width: 7px; height: 7px; background: #7B1FA2; border-radius: 50%; animation: float 7s ease-in-out infinite; animation-delay: 1.5s; opacity: 0.3;"></div>
+        <div style="position: absolute; top: 40%; left: 75%; width: 4px; height: 4px; background: #9C27B0; border-radius: 50%; animation: float 6s ease-in-out infinite; animation-delay: 3s; opacity: 0.5;"></div>
+        
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+            <h2 style="text-align: center; font-size: 3.5rem; font-weight: 700; margin-bottom: 30px; color: #ffffff; text-shadow: 0 4px 8px rgba(0,0,0,0.5); background: linear-gradient(45deg, #9C27B0, #7B1FA2, #9C27B0); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">💎 Unsere Werte</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: #cccccc; margin-bottom: 60px; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">Diese Grundwerte bilden das Fundament unserer Community und leiten uns bei allem, was wir tun.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(255, 107, 107, 0.3)'; this.style.borderColor='#FF6B6B';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FF6B6B, #FF8E8E); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Gemeinschaft</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Wir glauben an die Kraft einer starken, unterstützenden Community, in der jeder willkommen ist und sich zu Hause fühlt.</div>
+                </div>
+                
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(78, 205, 196, 0.3)'; this.style.borderColor='#4ECDC4';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4ECDC4, #44A08D); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Fairness</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Wir setzen uns für ein faires Spielerlebnis ein, in dem jeder die gleichen Chancen hat und Cheating nicht toleriert wird.</div>
+                </div>
+                
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(255, 215, 0, 0.3)'; this.style.borderColor='#FFD700';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Qualität</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Wir streben nach der höchsten Qualität in allen Bereichen - von der Serverperformance bis zur Spielerbetreuung.</div>
+                </div>
+                
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(69, 183, 209, 0.3)'; this.style.borderColor='#45B7D1';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #45B7D1, #96C93D); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(69, 183, 209, 0.4);">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Innovation</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Wir sind stets offen für neue Ideen und arbeiten kontinuierlich daran, das Spielerlebnis zu verbessern.</div>
+                </div>
+                
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(150, 206, 180, 0.3)'; this.style.borderColor='#96CEB4';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #96CEB4, #FFEAA7); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(150, 206, 180, 0.4);">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Respekt</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Respekt ist die Grundlage unserer Community. Wir behandeln alle Mitglieder mit Würde und Höflichkeit.</div>
+                </div>
+                
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(221, 160, 221, 0.3)'; this.style.borderColor='#DDA0DD';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #DDA0DD, #98D8C8); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(221, 160, 221, 0.4);">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Wachstum</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Wir fördern das persönliche Wachstum unserer Spieler und entwickeln uns als Community stetig weiter.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); position: relative; overflow: hidden;">
+
+        
+        <!-- Floating Particles -->
+        <div style="position: absolute; top: 25%; left: 20%; width: 6px; height: 6px; background: #9C27B0; border-radius: 50%; animation: float 6s ease-in-out infinite; opacity: 0.5;"></div>
+        <div style="position: absolute; top: 75%; left: 80%; width: 4px; height: 4px; background: #7B1FA2; border-radius: 50%; animation: float 8s ease-in-out infinite; animation-delay: 2s; opacity: 0.3;"></div>
+        <div style="position: absolute; top: 50%; left: 85%; width: 8px; height: 8px; background: #9C27B0; border-radius: 50%; animation: float 7s ease-in-out infinite; animation-delay: 4s; opacity: 0.4;"></div>
+        
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 3.5rem; font-weight: 700; margin-bottom: 30px; color: #ffffff; text-shadow: 0 4px 8px rgba(0,0,0,0.5); background: linear-gradient(45deg, #9C27B0, #7B1FA2, #9C27B0); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">📞 Kontaktiere uns</h2>
+                <p style="font-size: 1.3rem; color: #cccccc; margin-bottom: 60px; line-height: 1.6;">Hast du Fragen, Anregungen oder möchtest Teil unseres Teams werden? Wir freuen uns darauf, von dir zu hören!</p>
+                
+                <!-- Contact Cards -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
+                    <!-- Discord Card -->
+                    <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(114, 137, 218, 0.3)'; this.style.borderColor='#7289DA';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #7289DA, #5865F2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(114, 137, 218, 0.4);">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Discord Community</div>
+                        <div style="color: #cccccc; line-height: 1.6; font-size: 1rem; margin-bottom: 25px;">Tritt unserer Discord Community bei und vernetze dich mit anderen Spielern!</div>
+                        <a href="discord.html" style="display: inline-block; background: linear-gradient(135deg, #7289DA, #5865F2); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(114, 137, 218, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(114, 137, 218, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(114, 137, 218, 0.3)';">
+                            <i class="fab fa-discord" style="margin-right: 8px;"></i>
+                            Discord beitreten
+                        </a>
+                    </div>
+                    
+                    <!-- Rules Card -->
+                    <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(255, 152, 0, 0.3)'; this.style.borderColor='#FF9800';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FF9800, #F57C00); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Server Regeln</div>
+                        <div style="color: #cccccc; line-height: 1.6; font-size: 1rem; margin-bottom: 25px;">Lies unsere Serverregeln und erfahre, was auf BlitzSMP erlaubt ist.</div>
+                        <a href="rules.html" style="display: inline-block; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 152, 0, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 152, 0, 0.3)';">
+                            <i class="fas fa-book" style="margin-right: 8px;"></i>
+                            Regeln lesen
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Additional Contact Info -->
+                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 50px 40px; border-radius: 25px; border: 2px solid #444; margin-top: 50px; position: relative; overflow: hidden;">
+                    <!-- Animated Border -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #9C27B0, #7B1FA2, #9C27B0); animation: shimmer 3s ease-in-out infinite;"></div>
+                    
+
+                    
+                    <h3 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 40px; color: #ffffff; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.3); background: linear-gradient(45deg, #9C27B0, #7B1FA2, #9C27B0); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">💬 Weitere Kontaktmöglichkeiten</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                        <!-- Live Chat Card -->
+                        <div class="contact-option" style="background: linear-gradient(145deg, #1a1a1a, #2a2a2a); padding: 30px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #333; position: relative; overflow: hidden; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(76, 175, 80, 0.2)'; this.style.borderColor='#4CAF50';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'; this.style.borderColor='#333';">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Live Chat</div>
+                            <div style="color: #cccccc; font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">Chatte direkt mit unserem Support-Team und erhalte sofortige Hilfe bei deinen Fragen.</div>
+                            <div style="background: linear-gradient(135deg, #4CAF50, #45a049); padding: 8px 20px; border-radius: 15px; color: white; font-size: 0.9rem; font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">
+                                <i class="fas fa-clock" style="margin-right: 5px;"></i>
+                                Sofort verfügbar
+                            </div>
+                        </div>
+                        
+                        <!-- Support Tickets Card -->
+                        <div class="contact-option" style="background: linear-gradient(145deg, #1a1a1a, #2a2a2a); padding: 30px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #333; position: relative; overflow: hidden; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(33, 150, 243, 0.2)'; this.style.borderColor='#2196F3';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'; this.style.borderColor='#333';">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #2196F3, #1976D2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Support Tickets</div>
+                            <div style="color: #cccccc; font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">Erstelle ein detailliertes Ticket für komplexe Anliegen und erhalte strukturierte Hilfe.</div>
+                            <div style="background: linear-gradient(135deg, #2196F3, #1976D2); padding: 8px 20px; border-radius: 15px; color: white; font-size: 0.9rem; font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);">
+                                <i class="fas fa-file-alt" style="margin-right: 5px;"></i>
+                                Detaillierte Hilfe
+                            </div>
+                        </div>
+                        
+                        <!-- Team Application Card -->
+                        <div class="contact-option" style="background: linear-gradient(145deg, #1a1a1a, #2a2a2a); padding: 30px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #333; position: relative; overflow: hidden; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(156, 39, 176, 0.2)'; this.style.borderColor='#9C27B0';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'; this.style.borderColor='#333';">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #9C27B0, #7B1FA2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(156, 39, 176, 0.4);">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Team Bewerbung</div>
+                            <div style="color: #cccccc; font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">Bewirb dich für unser Team und werde Teil der BlitzSMP Community-Verwaltung.</div>
+                            <div style="background: linear-gradient(135deg, #9C27B0, #7B1FA2); padding: 8px 20px; border-radius: 15px; color: white; font-size: 0.9rem; font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);">
+                                <i class="fas fa-star" style="margin-right: 5px;"></i>
+                                Werde Teil des Teams
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom Info -->
+                    <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid #444;">
+                        <p style="color: #999999; font-size: 1rem; margin-bottom: 15px;">
+                            <i class="fas fa-info-circle" style="margin-right: 8px; color: #9C27B0;"></i>
+                            Alle Kontaktmöglichkeiten sind über unseren Discord Server verfügbar
+                        </p>
+                        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; color: #cccccc; font-size: 0.9rem;">
+                                <i class="fas fa-clock" style="margin-right: 5px; color: #4CAF50;"></i>
+                                24/7 Support
+                            </div>
+                            <div style="display: flex; align-items: center; color: #cccccc; font-size: 0.9rem;">
+                                <i class="fas fa-shield-alt" style="margin-right: 5px; color: #2196F3;"></i>
+                                Sichere Kommunikation
+                            </div>
+                            <div style="display: flex; align-items: center; color: #cccccc; font-size: 0.9rem;">
+                                <i class="fas fa-heart" style="margin-right: 5px; color: #9C27B0;"></i>
+                                Freundliche Community
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -906,12 +709,8 @@
         </div>
     </footer>
 
-    <!-- Back to top button -->
-    <button id="backToTop" class="back-to-top" title="Zurück nach oben">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script src="script.js"></script>
+    <script src="team-loader.js"></script>
     <script>
         // Enhanced Navigation
         document.addEventListener('DOMContentLoaded', function() {
@@ -969,23 +768,16 @@
                 });
             });
             
-            // Add hover sound effect (optional)
-            navLinks.forEach(link => {
-                link.addEventListener('mouseenter', () => {
-                    link.style.transform = 'translateY(-2px) scale(1.05)';
-                });
-                
-                link.addEventListener('mouseleave', () => {
-                    link.style.transform = 'translateY(0) scale(1)';
-                });
-            });
+
         });
+        
+
     </script>
     <style>
         .ripple {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 152, 0, 0.3);
+            background: rgba(156, 39, 176, 0.3);
             transform: scale(0);
             animation: ripple 0.6s linear;
             pointer-events: none;
@@ -1001,7 +793,7 @@
         /* Scroll Effect */
         .navbar.scrolled {
             background: linear-gradient(135deg, rgba(26, 26, 26, 0.99), rgba(45, 45, 45, 0.98));
-            border-bottom: 2px solid rgba(255, 152, 0, 0.5);
+            border-bottom: 2px solid rgba(156, 39, 176, 0.5);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
     </style>
