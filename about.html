@@ -8,6 +8,241 @@
     <link href="https://fonts.googleapis.com/css2?family=Minecraft&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Enhanced Navigation Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.98), rgba(45, 45, 45, 0.95));
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(156, 39, 176, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .navbar:hover {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.99), rgba(45, 45, 45, 0.97));
+            border-bottom: 2px solid rgba(156, 39, 176, 0.6);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 12px 20px;
+            border-radius: 25px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(156, 39, 176, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        .nav-link:hover {
+            color: #9C27B0;
+            background: rgba(156, 39, 176, 0.1);
+            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.2);
+        }
+        
+        .nav-link.active {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.3), rgba(156, 39, 176, 0.2));
+            color: #9C27B0;
+            box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, #9C27B0, #7B1FA2);
+            border-radius: 2px;
+            animation: gentlePulse 2s ease-in-out infinite;
+        }
+        
+        /* Enhanced Navigation Links with unique backgrounds */
+        .nav-link[href="index.html"] {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+        
+        .nav-link[href="index.html"]:hover {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+            border: 1px solid rgba(76, 175, 80, 0.4);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+            color: #4CAF50;
+        }
+        
+        .nav-link[href="discord.html"] {
+            background: linear-gradient(135deg, rgba(114, 137, 218, 0.1), rgba(114, 137, 218, 0.05));
+            border: 1px solid rgba(114, 137, 218, 0.2);
+        }
+        
+        .nav-link[href="discord.html"]:hover {
+            background: linear-gradient(135deg, rgba(114, 137, 218, 0.2), rgba(114, 137, 218, 0.1));
+            border: 1px solid rgba(114, 137, 218, 0.4);
+            box-shadow: 0 8px 20px rgba(114, 137, 218, 0.3);
+            color: #7289DA;
+        }
+        
+        .nav-link[href="rules.html"] {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 152, 0, 0.05));
+            border: 1px solid rgba(255, 152, 0, 0.2);
+        }
+        
+        .nav-link[href="rules.html"]:hover {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.1));
+            border: 1px solid rgba(255, 152, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
+            color: #FF9800;
+        }
+        
+        .nav-link[href="about.html"] {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.1), rgba(156, 39, 176, 0.05));
+            border: 1px solid rgba(156, 39, 176, 0.2);
+        }
+        
+        .nav-link[href="about.html"]:hover {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.2), rgba(156, 39, 176, 0.1));
+            border: 1px solid rgba(156, 39, 176, 0.4);
+            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.3);
+            color: #9C27B0;
+        }
+        
+        /* Active state enhancements */
+        .nav-link[href="index.html"].active {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.2));
+            border: 1px solid rgba(76, 175, 80, 0.6);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+            color: #4CAF50;
+        }
+        
+        .nav-link[href="discord.html"].active {
+            background: linear-gradient(135deg, rgba(114, 137, 218, 0.3), rgba(114, 137, 218, 0.2));
+            border: 1px solid rgba(114, 137, 218, 0.6);
+            box-shadow: 0 8px 25px rgba(114, 137, 218, 0.4);
+            color: #7289DA;
+        }
+        
+        .nav-link[href="rules.html"].active {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.3), rgba(255, 152, 0, 0.2));
+            border: 1px solid rgba(255, 152, 0, 0.6);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+            color: #FF9800;
+        }
+        
+        .nav-link[href="about.html"].active {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.3), rgba(156, 39, 176, 0.2));
+            border: 1px solid rgba(156, 39, 176, 0.6);
+            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.4);
+            color: #9C27B0;
+        }
+        
+        /* Icon animations for nav links */
+        .nav-link i {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.9rem;
+        }
+        
+        .nav-link:hover i {
+            transform: scale(1.1);
+        }
+        
+        .nav-link.active i {
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+        
+
+        
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Unique icon colors for each page */
+        .nav-link[href="index.html"] i {
+            color: #4CAF50;
+        }
+        
+        .nav-link[href="discord.html"] i {
+            color: #7289DA;
+        }
+        
+        .nav-link[href="rules.html"] i {
+            color: #FF9800;
+        }
+        
+        .nav-link[href="about.html"] i {
+            color: #9C27B0;
+        }
+        
+        /* Enhanced hover effects with icon glow */
+        .nav-link[href="index.html"]:hover i {
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.8);
+        }
+        
+        .nav-link[href="discord.html"]:hover i {
+            text-shadow: 0 0 10px rgba(114, 137, 218, 0.8);
+        }
+        
+        .nav-link[href="rules.html"]:hover i {
+            text-shadow: 0 0 10px rgba(255, 152, 0, 0.8);
+        }
+        
+        .nav-link[href="about.html"]:hover i {
+            text-shadow: 0 0 10px rgba(156, 39, 176, 0.8);
+        }
+        
         .about-hero {
             background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
             min-height: 50vh;
@@ -17,16 +252,9 @@
             overflow: hidden;
         }
         
-        .about-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="about-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23about-grid)"/></svg>');
-            animation: float 25s ease-in-out infinite;
-        }
+
+        
+
         
         .about-content {
             max-width: 1200px;
@@ -52,29 +280,28 @@
         
         .about-story {
             padding: 100px 0;
-            background: white;
+            background: var(--bg-primary);
         }
         
         .story-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+            display: block;
         }
         
         .story-text h2 {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 30px;
-            color: var(--dark-color);
+            color: var(--text-primary);
         }
         
         .story-text p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
         }
+        
+
         
         .story-visual {
             position: relative;
@@ -109,222 +336,56 @@
             50% { transform: scale(1.1); }
         }
         
-        .team-section {
-            padding: 100px 0;
-            background: var(--light-color);
-        }
+
         
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
+
         
-        .team-member {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
+
         
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-        
-        .member-avatar {
-            width: 120px;
-            height: 120px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 3rem;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .team-member:hover .member-avatar {
-            transform: scale(1.1) rotate(360deg);
-        }
-        
-        .member-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-        
-        .member-role {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .member-description {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-        
-        .values-section {
-            padding: 100px 0;
-            background: white;
-        }
-        
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .value-card {
-            text-align: center;
-            padding: 40px 30px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-        
-        .value-card:hover::before {
-            opacity: 0.1;
-        }
-        
-        .value-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .value-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2rem;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .value-card:hover .value-icon {
-            transform: scale(1.1);
-        }
-        
-        .value-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
-        
-        .value-description {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-        
-        .stats-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--dark-color) 0%, #2c3e50 100%);
-            color: white;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
-        
-        .stat-item {
-            padding: 30px 20px;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
-        
-        .contact-section {
-            padding: 100px 0;
-            background: var(--light-color);
-        }
-        
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .contact-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
-        }
-        
-        .contact-content p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        
-        .contact-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+
         
         @media (max-width: 768px) {
             .about-title {
                 font-size: 2.5rem;
             }
             
-            .story-content {
+
+            
+            .team-table {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 20px;
             }
             
-            .story-visual {
-                height: 300px;
+            .team-category {
+                padding: 20px;
             }
             
-            .story-icon {
-                font-size: 6rem;
+            .team-category h3 {
+                font-size: 1.2rem;
             }
             
             .contact-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .team-table {
+                gap: 15px;
+            }
+            
+            .team-category {
+                padding: 15px;
+            }
+            
+            .team-category h3 {
+                font-size: 1.1rem;
+            }
+            
+            .team-category li {
+                font-size: 0.9rem;
+                padding: 10px 0;
             }
         }
     </style>
@@ -339,16 +400,28 @@
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">Start</a>
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Start</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="discord.html" class="nav-link">Discord</a>
+                    <a href="discord.html" class="nav-link">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="rules.html" class="nav-link">Regeln</a>
+                    <a href="rules.html" class="nav-link">
+                        <i class="fas fa-gavel"></i>
+                        <span>Regeln</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link active">Über uns</a>
+                    <a href="about.html" class="nav-link active">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Über uns</span>
+                    </a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -367,157 +440,212 @@
         </div>
     </section>
 
-    <!-- Our Story -->
-    <section class="about-story">
-        <div class="container">
-            <div class="story-content">
-                <div class="story-text">
-                    <h2>Unsere Geschichte</h2>
-                    <p>BlitzSMP wurde 2024 mit einer einfachen Mission gegründet: Einen Minecraft Survival Server zu schaffen, der die beste Spielerfahrung bietet und gleichzeitig eine freundliche, respektvolle Community aufbaut.</p>
-                    <p>Was als kleiner Server mit einigen Freunden begann, ist heute zu einer lebendigen Community mit über 100 aktiven Spielern gewachsen. Wir sind stolz darauf, einen Ort geschaffen zu haben, an dem Spieler aller Altersgruppen und Erfahrungslevel zusammenkommen können, um Minecraft in seiner reinsten Form zu genießen.</p>
-                    <p>Unser Team arbeitet kontinuierlich daran, den Server zu verbessern, neue Features hinzuzufügen und eine sichere, faire Spielumgebung für alle zu gewährleisten.</p>
-                </div>
-                <div class="story-visual">
-                    <div class="story-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
+    <!-- Our Team -->
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); position: relative; overflow: hidden;">
+
+        
+        <!-- Floating Particles -->
+        <div style="position: absolute; top: 20%; left: 10%; width: 6px; height: 6px; background: #9C27B0; border-radius: 50%; animation: float 4s ease-in-out infinite; opacity: 0.6;"></div>
+        <div style="position: absolute; top: 60%; left: 80%; width: 4px; height: 4px; background: #7B1FA2; border-radius: 50%; animation: float 6s ease-in-out infinite; animation-delay: 1s; opacity: 0.4;"></div>
+        <div style="position: absolute; top: 30%; left: 70%; width: 8px; height: 8px; background: #9C27B0; border-radius: 50%; animation: float 5s ease-in-out infinite; animation-delay: 2s; opacity: 0.5;"></div>
+        
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+            <h2 style="text-align: center; font-size: 3.5rem; font-weight: 700; margin-bottom: 30px; color: #ffffff; text-shadow: 0 4px 8px rgba(0,0,0,0.5); background: linear-gradient(45deg, #9C27B0, #7B1FA2, #9C27B0); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">👥 Unser Team</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: #cccccc; margin-bottom: 60px; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">Hier findest du alle unsere Teammitglieder, die täglich daran arbeiten, BlitzSMP zu einem der besten Minecraft Server zu machen.</p>
+            
+            <div class="team-table" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                <!-- Team-Tabelle wird dynamisch von team-loader.js geladen -->
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px; color: #cccccc; font-size: 1.1rem;">
+                    <i style="font-size: 3rem; margin-bottom: 20px; color: #9C27B0; animation: spin 1s linear infinite;"></i>
+                    <span>Lade Team-Daten...</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Team -->
-    <section class="team-section">
-        <div class="container">
-            <h2 class="section-title">Unser Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <div class="member-name">Server Owner</div>
-                    <div class="member-role">Administrator</div>
-                    <div class="member-description">Verantwortlich für die Gesamtleitung des Servers, Entwicklung neuer Features und die strategische Ausrichtung von BlitzSMP.</div>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="member-name">Moderation Team</div>
-                    <div class="member-role">Moderatoren</div>
-                    <div class="member-description">Unser engagiertes Moderationsteam sorgt für Ordnung, beantwortet Fragen und unterstützt die Community bei allen Anliegen.</div>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="member-name">Technik Team</div>
-                    <div class="member-role">Entwickler</div>
-                    <div class="member-description">Unsere Techniker arbeiten kontinuierlich an der Verbesserung der Serverperformance und der Entwicklung neuer Features.</div>
-                </div>
-                <div class="team-member">
-                    <div class="member-avatar">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="member-name">Community Manager</div>
-                    <div class="member-role">Community</div>
-                    <div class="member-description">Verantwortlich für Events, Community-Aktivitäten und die Pflege einer positiven Spielumgebung für alle Mitglieder.</div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Our Values -->
-    <section class="values-section">
-        <div class="container">
-            <h2 class="section-title">Unsere Werte</h2>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); position: relative; overflow: hidden;">
+
+        
+        <!-- Floating Particles -->
+        <div style="position: absolute; top: 15%; left: 15%; width: 5px; height: 5px; background: #9C27B0; border-radius: 50%; animation: float 5s ease-in-out infinite; opacity: 0.4;"></div>
+        <div style="position: absolute; top: 70%; left: 85%; width: 7px; height: 7px; background: #7B1FA2; border-radius: 50%; animation: float 7s ease-in-out infinite; animation-delay: 1.5s; opacity: 0.3;"></div>
+        <div style="position: absolute; top: 40%; left: 75%; width: 4px; height: 4px; background: #9C27B0; border-radius: 50%; animation: float 6s ease-in-out infinite; animation-delay: 3s; opacity: 0.5;"></div>
+        
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+            <h2 style="text-align: center; font-size: 3.5rem; font-weight: 700; margin-bottom: 30px; color: #ffffff; text-shadow: 0 4px 8px rgba(0,0,0,0.5); background: linear-gradient(45deg, #9C27B0, #7B1FA2, #9C27B0); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">💎 Unsere Werte</h2>
+            <p style="text-align: center; font-size: 1.3rem; color: #cccccc; margin-bottom: 60px; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">Diese Grundwerte bilden das Fundament unserer Community und leiten uns bei allem, was wir tun.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(255, 107, 107, 0.3)'; this.style.borderColor='#FF6B6B';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FF6B6B, #FF8E8E); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <div class="value-title">Gemeinschaft</div>
-                    <div class="value-description">Wir glauben an die Kraft einer starken, unterstützenden Community, in der jeder willkommen ist und sich zu Hause fühlt.</div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Gemeinschaft</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Wir glauben an die Kraft einer starken, unterstützenden Community, in der jeder willkommen ist und sich zu Hause fühlt.</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
+                
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(78, 205, 196, 0.3)'; this.style.borderColor='#4ECDC4';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4ECDC4, #44A08D); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);">
                         <i class="fas fa-balance-scale"></i>
                     </div>
-                    <div class="value-title">Fairness</div>
-                    <div class="value-description">Wir setzen uns für ein faires Spielerlebnis ein, in dem jeder die gleichen Chancen hat und Cheating nicht toleriert wird.</div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Fairness</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Wir setzen uns für ein faires Spielerlebnis ein, in dem jeder die gleichen Chancen hat und Cheating nicht toleriert wird.</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
+                
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(255, 215, 0, 0.3)'; this.style.borderColor='#FFD700';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FFD700, #FFA500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);">
                         <i class="fas fa-star"></i>
                     </div>
-                    <div class="value-title">Qualität</div>
-                    <div class="value-description">Wir streben nach der höchsten Qualität in allen Bereichen - von der Serverperformance bis zur Spielerbetreuung.</div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Qualität</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Wir streben nach der höchsten Qualität in allen Bereichen - von der Serverperformance bis zur Spielerbetreuung.</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
+                
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(69, 183, 209, 0.3)'; this.style.borderColor='#45B7D1';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #45B7D1, #96C93D); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(69, 183, 209, 0.4);">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <div class="value-title">Innovation</div>
-                    <div class="value-description">Wir sind stets offen für neue Ideen und arbeiten kontinuierlich daran, das Spielerlebnis zu verbessern.</div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Innovation</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Wir sind stets offen für neue Ideen und arbeiten kontinuierlich daran, das Spielerlebnis zu verbessern.</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
+                
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(150, 206, 180, 0.3)'; this.style.borderColor='#96CEB4';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #96CEB4, #FFEAA7); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(150, 206, 180, 0.4);">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <div class="value-title">Respekt</div>
-                    <div class="value-description">Respekt ist die Grundlage unserer Community. Wir behandeln alle Mitglieder mit Würde und Höflichkeit.</div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Respekt</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Respekt ist die Grundlage unserer Community. Wir behandeln alle Mitglieder mit Würde und Höflichkeit.</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
+                
+                <div class="value-card" style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 35px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(221, 160, 221, 0.3)'; this.style.borderColor='#DDA0DD';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #DDA0DD, #98D8C8); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(221, 160, 221, 0.4);">
                         <i class="fas fa-rocket"></i>
                     </div>
-                    <div class="value-title">Wachstum</div>
-                    <div class="value-description">Wir fördern das persönliche Wachstum unserer Spieler und entwickeln uns als Community stetig weiter.</div>
+                    <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Wachstum</div>
+                    <div style="color: #cccccc; line-height: 1.6; font-size: 1rem;">Wir fördern das persönliche Wachstum unserer Spieler und entwickeln uns als Community stetig weiter.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Server Stats -->
-    <section class="stats-section">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Server Statistiken</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number" data-target="100">0</span>
-                    <div class="stat-label">Aktive Spieler</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="500">0</span>
-                    <div class="stat-label">Registrierte Mitglieder</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="24">0</span>
-                    <div class="stat-label">Stunden Online</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="99">0</span>
-                    <div class="stat-label">% Uptime</div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-content">
-                <h2>Kontaktiere uns</h2>
-                <p>Hast du Fragen, Anregungen oder möchtest Teil unseres Teams werden? Wir freuen uns darauf, von dir zu hören!</p>
-                <div class="contact-buttons">
-                    <a href="discord.html" class="btn btn-primary btn-large">
-                        <i class="fab fa-discord"></i>
-                        Discord beitreten
-                    </a>
-                    <a href="rules.html" class="btn btn-outline btn-large">
-                        <i class="fas fa-book"></i>
-                        Regeln lesen
-                    </a>
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); position: relative; overflow: hidden;">
+
+        
+        <!-- Floating Particles -->
+        <div style="position: absolute; top: 25%; left: 20%; width: 6px; height: 6px; background: #9C27B0; border-radius: 50%; animation: float 6s ease-in-out infinite; opacity: 0.5;"></div>
+        <div style="position: absolute; top: 75%; left: 80%; width: 4px; height: 4px; background: #7B1FA2; border-radius: 50%; animation: float 8s ease-in-out infinite; animation-delay: 2s; opacity: 0.3;"></div>
+        <div style="position: absolute; top: 50%; left: 85%; width: 8px; height: 8px; background: #9C27B0; border-radius: 50%; animation: float 7s ease-in-out infinite; animation-delay: 4s; opacity: 0.4;"></div>
+        
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 3.5rem; font-weight: 700; margin-bottom: 30px; color: #ffffff; text-shadow: 0 4px 8px rgba(0,0,0,0.5); background: linear-gradient(45deg, #9C27B0, #7B1FA2, #9C27B0); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">📞 Kontaktiere uns</h2>
+                <p style="font-size: 1.3rem; color: #cccccc; margin-bottom: 60px; line-height: 1.6;">Hast du Fragen, Anregungen oder möchtest Teil unseres Teams werden? Wir freuen uns darauf, von dir zu hören!</p>
+                
+                <!-- Contact Cards -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
+                    <!-- Discord Card -->
+                    <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(114, 137, 218, 0.3)'; this.style.borderColor='#7289DA';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #7289DA, #5865F2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(114, 137, 218, 0.4);">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Discord Community</div>
+                        <div style="color: #cccccc; line-height: 1.6; font-size: 1rem; margin-bottom: 25px;">Tritt unserer Discord Community bei und vernetze dich mit anderen Spielern!</div>
+                        <a href="discord.html" style="display: inline-block; background: linear-gradient(135deg, #7289DA, #5865F2); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(114, 137, 218, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(114, 137, 218, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(114, 137, 218, 0.3)';">
+                            <i class="fab fa-discord" style="margin-right: 8px;"></i>
+                            Discord beitreten
+                        </a>
+                    </div>
+                    
+                    <!-- Rules Card -->
+                    <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 40px 30px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #444; position: relative; overflow: hidden; animation: gentlePulse 8s ease-in-out infinite; cursor: pointer;" onmouseover="this.style.transform='translateY(-15px) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(255, 152, 0, 0.3)'; this.style.borderColor='#FF9800';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.3)'; this.style.borderColor='#444';">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FF9800, #F57C00); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2.5rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Server Regeln</div>
+                        <div style="color: #cccccc; line-height: 1.6; font-size: 1rem; margin-bottom: 25px;">Lies unsere Serverregeln und erfahre, was auf BlitzSMP erlaubt ist.</div>
+                        <a href="rules.html" style="display: inline-block; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 152, 0, 0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 152, 0, 0.3)';">
+                            <i class="fas fa-book" style="margin-right: 8px;"></i>
+                            Regeln lesen
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Additional Contact Info -->
+                <div style="background: linear-gradient(145deg, #2a2a2a, #333333); padding: 50px 40px; border-radius: 25px; border: 2px solid #444; margin-top: 50px; position: relative; overflow: hidden;">
+                    <!-- Animated Border -->
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #9C27B0, #7B1FA2, #9C27B0); animation: shimmer 3s ease-in-out infinite;"></div>
+                    
+
+                    
+                    <h3 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 40px; color: #ffffff; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.3); background: linear-gradient(45deg, #9C27B0, #7B1FA2, #9C27B0); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s ease-in-out infinite;">💬 Weitere Kontaktmöglichkeiten</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                        <!-- Live Chat Card -->
+                        <div class="contact-option" style="background: linear-gradient(145deg, #1a1a1a, #2a2a2a); padding: 30px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #333; position: relative; overflow: hidden; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(76, 175, 80, 0.2)'; this.style.borderColor='#4CAF50';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'; this.style.borderColor='#333';">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Live Chat</div>
+                            <div style="color: #cccccc; font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">Chatte direkt mit unserem Support-Team und erhalte sofortige Hilfe bei deinen Fragen.</div>
+                            <div style="background: linear-gradient(135deg, #4CAF50, #45a049); padding: 8px 20px; border-radius: 15px; color: white; font-size: 0.9rem; font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">
+                                <i class="fas fa-clock" style="margin-right: 5px;"></i>
+                                Sofort verfügbar
+                            </div>
+                        </div>
+                        
+                        <!-- Support Tickets Card -->
+                        <div class="contact-option" style="background: linear-gradient(145deg, #1a1a1a, #2a2a2a); padding: 30px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #333; position: relative; overflow: hidden; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(33, 150, 243, 0.2)'; this.style.borderColor='#2196F3';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'; this.style.borderColor='#333';">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #2196F3, #1976D2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Support Tickets</div>
+                            <div style="color: #cccccc; font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">Erstelle ein detailliertes Ticket für komplexe Anliegen und erhalte strukturierte Hilfe.</div>
+                            <div style="background: linear-gradient(135deg, #2196F3, #1976D2); padding: 8px 20px; border-radius: 15px; color: white; font-size: 0.9rem; font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);">
+                                <i class="fas fa-file-alt" style="margin-right: 5px;"></i>
+                                Detaillierte Hilfe
+                            </div>
+                        </div>
+                        
+                        <!-- Team Application Card -->
+                        <div class="contact-option" style="background: linear-gradient(145deg, #1a1a1a, #2a2a2a); padding: 30px 25px; border-radius: 20px; text-align: center; transition: all 0.4s ease; border: 2px solid #333; position: relative; overflow: hidden; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(156, 39, 176, 0.2)'; this.style.borderColor='#9C27B0';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'; this.style.borderColor='#333';">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #9C27B0, #7B1FA2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem; color: white; transition: all 0.4s ease; animation: gentleFloat 4s ease-in-out infinite; box-shadow: 0 8px 25px rgba(156, 39, 176, 0.4);">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Team Bewerbung</div>
+                            <div style="color: #cccccc; font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">Bewirb dich für unser Team und werde Teil der BlitzSMP Community-Verwaltung.</div>
+                            <div style="background: linear-gradient(135deg, #9C27B0, #7B1FA2); padding: 8px 20px; border-radius: 15px; color: white; font-size: 0.9rem; font-weight: 600; display: inline-block; box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);">
+                                <i class="fas fa-star" style="margin-right: 5px;"></i>
+                                Werde Teil des Teams
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom Info -->
+                    <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid #444;">
+                        <p style="color: #999999; font-size: 1rem; margin-bottom: 15px;">
+                            <i class="fas fa-info-circle" style="margin-right: 8px; color: #9C27B0;"></i>
+                            Alle Kontaktmöglichkeiten sind über unseren Discord Server verfügbar
+                        </p>
+                        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; color: #cccccc; font-size: 0.9rem;">
+                                <i class="fas fa-clock" style="margin-right: 5px; color: #4CAF50;"></i>
+                                24/7 Support
+                            </div>
+                            <div style="display: flex; align-items: center; color: #cccccc; font-size: 0.9rem;">
+                                <i class="fas fa-shield-alt" style="margin-right: 5px; color: #2196F3;"></i>
+                                Sichere Kommunikation
+                            </div>
+                            <div style="display: flex; align-items: center; color: #cccccc; font-size: 0.9rem;">
+                                <i class="fas fa-heart" style="margin-right: 5px; color: #9C27B0;"></i>
+                                Freundliche Community
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -532,8 +660,6 @@
                     <p>Der beste Minecraft Survival Server Deutschlands</p>
                     <div class="social-links">
                         <a href="discord.html"><i class="fab fa-discord"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -550,51 +676,105 @@
                     <ul>
                         <li><a href="discord.html">Discord Support</a></li>
                         <li><a href="rules.html">Serverregeln</a></li>
-                        <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 BlitzSMP. Alle Rechte vorbehalten.</p>
+                <p>
+                    <span class="copyright-brand">&copy; BlitzSMP.de</span>
+                    <span class="developer-info">Alles programmiert und entwickelt von <span class="discord-tag">Dc: @20xu</span></span>
+                </p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="team-loader.js"></script>
     <script>
-        // Animate statistics
-        function animateStats() {
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-target'));
-                const increment = target / 50;
-                let current = 0;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    stat.textContent = Math.floor(current);
-                }, 50);
-            });
-        }
-        
-        // Trigger animation when stats section is visible
-        const statsSection = document.querySelector('.stats-section');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                    statsObserver.unobserve(entry.target);
+        // Enhanced Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // Scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
                 }
             });
+            
+            // Hamburger menu toggle
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Close menu when clicking on a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (hamburger) {
+                        hamburger.classList.remove('active');
+                    }
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Add ripple effect to nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+            
+
         });
         
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
+
     </script>
+    <style>
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(156, 39, 176, 0.3);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        /* Scroll Effect */
+        .navbar.scrolled {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.99), rgba(45, 45, 45, 0.98));
+            border-bottom: 2px solid rgba(156, 39, 176, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+    </style>
 </body>
 </html>
