@@ -97,16 +97,26 @@ class TeamLoader {
         };
 
         categories.forEach(category => {
-            if (this.teamData[category] && this.teamData[category].length > 0) {
+            // Debug-Ausgabe für Co-Owner Kategorie
+            if (category === 'coowner') {
+                console.log('Co-Owner Daten:', this.teamData[category]);
+                console.log('Co-Owner Länge:', this.teamData[category] ? this.teamData[category].length : 'undefined');
+            }
+            
+            // Sicherheitsmaßnahme: Stelle sicher, dass die Kategorie existiert und Mitglieder hat
+            const categoryData = this.teamData[category];
+            if (categoryData && Array.isArray(categoryData) && categoryData.length > 0) {
                 const categoryDiv = this.createCategoryElement(
                     categoryNames[category],
                     icons[category],
-                    this.teamData[category],
+                    categoryData,
                     category,
                     categoryColors[category],
                     categoryGradients[category]
                 );
                 container.appendChild(categoryDiv);
+            } else if (category === 'coowner') {
+                console.error('Co-Owner Kategorie wird nicht angezeigt. Daten:', categoryData);
             }
         });
     }
