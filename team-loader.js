@@ -10,9 +10,10 @@ class TeamLoader {
     getTeamData() {
         return {
             owner: [
-                "Heyjoo",
-                "Gibril", 
-                "Polo"
+                "Gibril",
+            coowner: [
+                "Heyjoo", 
+                "Polo""
             ],
             manager: [
                 "Croxy",
