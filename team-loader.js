@@ -11,9 +11,6 @@ class TeamLoader {
         return {
             owner: [
                 "Gibril",
-            coowner: [
-                "Heyjoo", 
-                "Polo""
             ],
             manager: [
                 "Croxy",
