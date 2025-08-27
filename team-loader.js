@@ -13,7 +13,8 @@ class TeamLoader {
                 "Gibril",
             ],
             coowner: [
-                "1111",
+                "HeyJoo",
+                "Polo"
             ],
             manager: [
                 "Croxy",
