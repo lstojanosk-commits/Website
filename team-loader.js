@@ -51,9 +51,10 @@ class TeamLoader {
         container.innerHTML = '';
 
         // Kategorien in der gewünschten Reihenfolge
-        const categories = ['owner', 'manager', 'admin', 'dev', 'mod', 'helper', 'builder'];
+        const categories = ['owner', 'coowner', 'manager', 'admin', 'dev', 'mod', 'helper', 'builder'];
         const categoryNames = {
             'owner': '👑 Owner',
+            'coowner': '👑 Co-Owner',
             'manager': '⭐ Manager', 
             'admin': '🛡️ Admin',
             'dev': '💻 Developer',
@@ -64,6 +65,7 @@ class TeamLoader {
 
         const categoryColors = {
             'owner': '#FFD700', // Gold
+            'coowner': '#FFD700', // Gold
             'manager': '#FF6B6B', // Rot
             'admin': '#4ECDC4', // Türkis
             'dev': '#45B7D1', // Blau
@@ -74,6 +76,7 @@ class TeamLoader {
 
         const categoryGradients = {
             'owner': 'linear-gradient(135deg, #FFD700, #FFA500)',
+            'coowner': 'linear-gradient(135deg, #FFD700, #FFA500)',
             'manager': 'linear-gradient(135deg, #FF6B6B, #FF8E8E)',
             'admin': 'linear-gradient(135deg, #4ECDC4, #44A08D)',
             'dev': 'linear-gradient(135deg, #45B7D1, #96C93D)',
@@ -84,6 +87,7 @@ class TeamLoader {
 
         const icons = {
             'owner': 'fas fa-crown',
+            'coowner': 'fas fa-crown',
             'manager': 'fas fa-star',
             'admin': 'fas fa-shield-alt',
             'dev': 'fas fa-code',
