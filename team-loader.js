@@ -12,6 +12,9 @@ class TeamLoader {
             owner: [
                 "Gibril",
             ],
+            coowner: [
+                "1111",
+            ],
             manager: [
                 "Croxy",
                 "brokenrace"
