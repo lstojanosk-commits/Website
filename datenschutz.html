@@ -1,0 +1,488 @@
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - BlitzSMP</title>
+    <style>
+        /* Globale Styles */
+        :root {
+            --primary: #fbbf24;
+            --primary-dark: #f59e0b;
+            --secondary: #1f2937;
+            --dark: #111827;
+            --darker: #0f172a;
+            --light: #f3f4f6;
+            --gray: #6b7280;
+            --gray-dark: #4b5563;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #0f172a 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary);
+            border-bottom-color: rgba(251, 191, 36, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #111827;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--light);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .underline {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        .card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(75, 85, 99, 0.3);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            color: #fbbf24;
+            opacity: 0.9;
+        }
+
+        .card p {
+            color: var(--light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .card strong {
+            color: var(--light);
+        }
+
+        .highlight-box {
+            background: rgba(251, 191, 36, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Back Button */
+        .back-button-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        .back-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: #111827;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            padding: 1.25rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #111827;
+        }
+
+        .footer-logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card h2 {
+                font-size: 1.75rem;
+            }
+
+            .card h3 {
+                font-size: 1.25rem;
+            }
+
+            .header-container, .container, .back-button-container, .footer-content {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">B</div>
+                <div class="logo-text">BlitzSMP</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Datenschutzerklärung</h1>
+        <p>Informationen zum Schutz Ihrer personenbezogenen Daten</p>
+        <div class="underline"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="card">
+            <h2>1. Allgemeine Hinweise</h2>
+            <p>
+                Wir freuen uns über Ihren Besuch auf unserer Website und Ihr Interesse an unserem Minecraft-Server BlitzSMP. Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie über die Erhebung, Verarbeitung und Nutzung Ihrer personenbezogenen Daten im Rahmen der Nutzung unserer Website und des Servers.
+            </p>
+            <p>
+                Diese Datenschutzerklärung gilt für die Datenverarbeitung durch:
+            </p>
+            <p>
+                <strong>BlitzSMP Minecraft Server</strong><br>
+                c/o Maximilian Schmidt<br>
+                Musterstraße 123<br>
+                12345 Berlin<br>
+                Deutschland
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>2. Erhobene Daten und Zweck der Verarbeitung</h2>
+            
+            <h3>2.1 Website-Nutzung</h3>
+            <p>
+                Bei jedem Aufruf unserer Website werden automatisch Informationen erfasst, die Ihr Browser an unseren Server übermittelt. Dies sind:
+            </p>
+            <p>
+                - IP-Adresse<br>
+                - Datum und Uhrzeit des Zugriffs<br>
+                - Name und URL der abgerufenen Datei<br>
+                - Website, von der aus der Zugriff erfolgt (Referrer-URL)<br>
+                - Browsertyp und -version<br>
+                - Betriebssystem<br>
+                - Bildschirmauflösung
+            </p>
+            <p>
+                Diese Daten werden ausschließlich zu technischen und statistischen Zwecken verwendet, um die Sicherheit und Stabilität unseres Servers zu gewährleisten, die Website-Performance zu optimieren und die Nutzerfreundlichkeit zu verbessern.
+            </p>
+
+            <h3>2.2 Server-Nutzung</h3>
+            <p>
+                Für die Nutzung unseres Minecraft-Servers werden folgende Daten erhoben:
+            </p>
+            <p>
+                - Minecraft-Spielername<br>
+                - Spieler-UUID (eindeutige Benutzer-ID)<br>
+                - IP-Adresse (temporär für Sicherheitszwecke)<br>
+                - Spielstatistiken und Fortschritt<br>
+                - Chatnachrichten<br>
+                - Gegenstände im Inventar
+            </p>
+            <p>
+                Diese Daten werden benötigt, um die Serverfunktionalität bereitzustellen, die Spielwelt zu speichern, faire Spielbedingungen zu gewährleisten und die Community zu moderieren.
+            </p>
+
+            <h3>2.3 Discord-Integration</h3>
+            <p>
+                Bei Verbindung mit unserem Discord-Server werden folgende Daten verarbeitet:
+            </p>
+            <p>
+                - Discord-Benutzername und Tag<br>
+                - Discord-Benutzer-ID<br>
+                - Mitgliedschaft in der Community<br>
+                - Aktivitätsstatus
+            </p>
+            <p>
+                Diese Daten werden verwendet, um eine nahtlose Kommunikation zwischen Server und Community-Plattform zu ermöglichen und Mitglieder zu verifizieren.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>3. Rechtsgrundlagen der Datenverarbeitung</h2>
+            <p>
+                Die Verarbeitung Ihrer personenbezogenen Daten erfolgt auf Grundlage der folgenden Rechtsvorschriften:
+            </p>
+            <p>
+                <strong>a) Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)</strong><br>
+                Soweit Sie uns eine Einwilligung zur Verarbeitung Ihrer Daten erteilt haben, ist diese Rechtsgrundlage für die entsprechende Verarbeitungstätigkeit.
+            </p>
+            <p>
+                <strong>b) Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO)</strong><br>
+                Die Verarbeitung ist für die Erfüllung eines Vertrags, dessen Vertragspartei Sie sind, erforderlich. Dies betrifft insbesondere die Bereitstellung des Minecraft-Servers.
+            </p>
+            <p>
+                <strong>c) Berechtigte Interessen (Art. 6 Abs. 1 lit. f DSGVO)</strong><br>
+                Unsere berechtigten Interessen liegen in der technischen Funktionalität, Sicherheit und Optimierung unseres Servers und der Website.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>4. Datenweitergabe</h2>
+            <p>
+                Eine Weitergabe Ihrer personenbezogenen Daten an Dritte erfolgt nur, wenn:
+            </p>
+            <p>
+                - Sie Ihre ausdrückliche Einwilligung erteilt haben,<br>
+                - eine gesetzliche Verpflichtung zur Weitergabe besteht (z.B. im Falle von Strafverfolgungsbehörden),<br>
+                - dies zur Erfüllung vertraglicher Verpflichtungen erforderlich ist.
+            </p>
+            <div class="highlight-box">
+                <p><strong>Wichtig:</strong> Wir geben niemals Ihre Daten an Dritte weiter, um diese für Werbezwecke zu nutzen. Es findet keinerlei kommerzielle Weitergabe Ihrer Daten statt.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>5. Speicherdauer</h2>
+            <p>
+                Ihre personenbezogenen Daten werden nur so lange gespeichert, wie dies zur Erfüllung der vorgenannten Zwecke erforderlich ist oder wie es die gesetzlichen Aufbewahrungsfristen vorsehen.
+            </p>
+            <p>
+                <strong>Website-Daten:</strong> Die Logfiles werden nach 7 Tagen automatisch gelöscht.<br>
+                <strong>Server-Daten:</strong> Spielerdaten werden für die Dauer der Mitgliedschaft gespeichert. Nach 12 Monaten Inaktivität werden die Daten gelöscht.<br>
+                <strong>Chat-Logs:</strong> Werden nach 30 Tagen automatisch archiviert und nach 6 Monaten gelöscht.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>6. Ihre Rechte</h2>
+            <p>
+                Ihnen stehen folgende Rechte bezüglich Ihrer personenbezogenen Daten zu:
+            </p>
+            <p>
+                - <strong>Auskunftsrecht:</strong> Sie können Auskunft über Ihre bei uns gespeicherten Daten verlangen.<br>
+                - <strong>Löschrecht:</strong> Sie können die Löschung Ihrer Daten verlangen.<br>
+                - <strong>Recht auf Berichtigung:</strong> Sie können die Berichtigung unrichtiger Daten verlangen.<br>
+                - <strong>Recht auf Einschränkung der Verarbeitung:</strong> Sie können die Einschränkung der Verarbeitung verlangen.<br>
+                - <strong>Widerspruchsrecht:</strong> Sie können der Verarbeitung widersprechen.<br>
+                - <strong>Datenübertragbarkeit:</strong> Sie können Ihre Daten in einem gängigen Format erhalten.
+            </p>
+            <p>
+                Um Ihre Rechte geltend zu machen, wenden Sie sich bitte an: kontakt@blitzsmp.de
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>7. Sicherheit</h2>
+            <p>
+                Wir treffen umfangreiche technische und organisatorische Maßnahmen, um Ihre Daten vor Verlust, Zerstörung, Manipulation und unberechtigtem Zugriff zu schützen. Dazu gehören:
+            </p>
+            <p>
+                - Regelmäßige Sicherheitsupdates<br>
+                - Firewall-Schutz<br>
+                - Verschlüsselte Datenübertragung (HTTPS)<br>
+                - Zugriffskontrollen<br>
+                - Regelmäßige Backups<br>
+                - Moderne Anti-Cheat-Systeme
+            </p>
+            <p>
+                Trotz aller Sorgfalt ist ein vollständiger Schutz gegen alle Gefahren nicht möglich. Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. per E-Mail) Sicherheitslücken aufweisen kann.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>8. Änderungen dieser Datenschutzerklärung</h2>
+            <p>
+                Wir behalten uns vor, diese Datenschutzerklärung anzupassen, um sie an geänderte Rechtslagen oder Änderungen unserer Dienstleistungen anzupassen. Die jeweils aktuelle Version finden Sie stets auf unserer Website.
+            </p>
+            <p>
+                Stand: 15. April 2024
+            </p>
+        </div>
+    </main>
+
+    <!-- Back to Homepage Button -->
+    <div class="back-button-container">
+        <a href="https://blitzsmp.de" class="back-button">Zurück zur Homepage</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="footer-logo-icon">B</div>
+                <div class="footer-logo-text">BlitzSMP</div>
+            </div>
+            <p class="footer-text">© 2024 BlitzSMP. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
+```
