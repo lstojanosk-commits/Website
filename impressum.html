@@ -1,0 +1,127 @@
+import React from 'react';
+
+const App = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+      {/* Header */}
+      <header className="bg-black bg-opacity-80 backdrop-blur-sm border-b border-yellow-500 border-opacity-30 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center">
+                <span className="text-black font-bold text-xl">B</span>
+              </div>
+              <h1 className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                BlitzSMP
+              </h1>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
+            Impressum
+          </h1>
+          <p className="text-xl text-gray-300 mb-8">
+            Rechtliche Informationen gemäß § 5 TMG
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto"></div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div className="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700 p-8 mb-8">
+          <h2 className="text-3xl font-bold mb-6 text-yellow-400">Angaben gemäß § 5 TMG</h2>
+          <div className="space-y-4 text-gray-300 leading-relaxed">
+            <p>
+              <strong>BlitzSMP Minecraft Server</strong><br />
+              c/o Maximilian Schmidt<br />
+              Musterstraße 123<br />
+              12345 Berlin<br />
+              Deutschland
+            </p>
+            <p>
+              <strong>Kontakt:</strong><br />
+              E-Mail: kontakt@blitzsmp.de<br />
+              Discord: https://discord.blitzsmp.de
+            </p>
+            <p>
+              <strong>Vertreten durch:</strong><br />
+              Maximilian Schmidt (Serverleiter)
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700 p-8 mb-8">
+          <h2 className="text-3xl font-bold mb-6 text-yellow-400">Haftungsausschluss</h2>
+          
+          <h3 className="text-xl font-semibold mb-4 text-yellow-300">Haftung für Inhalte</h3>
+          <p className="text-gray-300 mb-6 leading-relaxed">
+            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+          </p>
+
+          <h3 className="text-xl font-semibold mb-4 text-yellow-300">Haftung für Links</h3>
+          <p className="text-gray-300 mb-6 leading-relaxed">
+            Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+          </p>
+        </div>
+
+        <div className="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700 p-8 mb-8">
+          <h2 className="text-3xl font-bold mb-6 text-yellow-400">Urheberrecht</h2>
+          <p className="text-gray-300 leading-relaxed">
+            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+          </p>
+        </div>
+
+        <div className="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-2xl shadow-2xl border border-gray-700 p-8">
+          <h2 className="text-3xl font-bold mb-6 text-yellow-400">Server-Informationen</h2>
+          <div className="grid md:grid-cols-2 gap-6 text-gray-300">
+            <div>
+              <h3 className="text-xl font-semibold mb-3 text-yellow-300">Server-IP</h3>
+              <p>play.blitzsmp.de</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-3 text-yellow-300">Minecraft Version</h3>
+              <p>1.20.4</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-3 text-yellow-300">Server-Typ</h3>
+              <p>Pure Survival SMP</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-3 text-yellow-300">Gründungsjahr</h3>
+              <p>2023</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Back to Homepage Button */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <a 
+          href="https://blitzsmp.de" 
+          className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-4 px-8 rounded-xl text-xl text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+        >
+          Zurück zur Homepage
+        </a>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-black bg-opacity-80 border-t border-yellow-500 border-opacity-30 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-gray-400">
+              © 2024 BlitzSMP. Alle Rechte vorbehalten.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
