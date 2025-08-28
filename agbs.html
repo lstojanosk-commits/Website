@@ -1,0 +1,521 @@
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGB - BlitzSMP</title>
+    <style>
+        /* Globale Styles */
+        :root {
+            --primary: #fbbf24;
+            --primary-dark: #f59e0b;
+            --secondary: #1f2937;
+            --dark: #111827;
+            --darker: #0f172a;
+            --light: #f3f4f6;
+            --gray: #6b7280;
+            --gray-dark: #4b5563;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #0f172a 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary);
+            border-bottom-color: rgba(251, 191, 36, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #111827;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--light);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .underline {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        .card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(75, 85, 99, 0.3);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            color: #fbbf24;
+            opacity: 0.9;
+        }
+
+        .card p {
+            color: var(--light);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .card strong {
+            color: var(--light);
+        }
+
+        .highlight-box {
+            background: rgba(251, 191, 36, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: #111827;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        /* Back Button */
+        .back-button-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        .back-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: #111827;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            padding: 1.25rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(17, 24, 39, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #111827;
+        }
+
+        .footer-logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card h2 {
+                font-size: 1.75rem;
+            }
+
+            .card h3 {
+                font-size: 1.25rem;
+            }
+
+            .header-container, .container, .back-button-container, .footer-content {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">B</div>
+                <div class="logo-text">BlitzSMP</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Allgemeine Geschäftsbedingungen</h1>
+        <p>Nutzungsbedingungen für den BlitzSMP Minecraft Server</p>
+        <div class="underline"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="card">
+            <h2>1. Geltungsbereich</h2>
+            <p>
+                <span class="section-number">1</span> Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Nutzung des Minecraft-Servers "BlitzSMP" (im Folgenden "Server" genannt). Mit der Verbindung zum Server erklärst du dich mit diesen AGB einverstanden.
+            </p>
+            <p>
+                <span class="section-number">2</span> Der Betreiber des Servers ist BlitzSMP Minecraft Server, vertreten durch Maximilian Schmidt. Die Server-IP lautet: play.blitzsmp.de.
+            </p>
+            <p>
+                <span class="section-number">3</span> Diese AGB regeln die rechtlichen Rahmenbedingungen für die Nutzung des Servers, einschließlich der Verhaltensregeln, der Rechte und Pflichten der Spieler sowie der Haftungsbestimmungen.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>2. Zugang zum Server</h2>
+            
+            <h3>2.1 Voraussetzungen</h3>
+            <p>
+                <span class="section-number">4</span> Zur Nutzung des Servers benötigst du einen legal erworbenen Minecraft-Account der Java-Edition in der aktuellen Version 1.20.4.
+            </p>
+            <p>
+                <span class="section-number">5</span> Der Zugang zum Server ist für alle Spieler ab 13 Jahren gestattet. Minderjährige unter 16 Jahren benötigen die Zustimmung eines Erziehungsberechtigten.
+            </p>
+
+            <h3>2.2 Registrierung</h3>
+            <p>
+                <span class="section-number">6</span> Die Nutzung des Servers setzt keine separate Registrierung voraus. Durch das erste Betreten des Servers wird automatisch ein Spielerprofil angelegt.
+            </p>
+            <p>
+                <span class="section-number">7</span> Jeder Spieler darf nur einen Account verwenden. Multi-Accounting ist untersagt und führt zum Ausschluss beider Accounts.
+            </p>
+
+            <h3>2.3 Serverzugang</h3>
+            <p>
+                <span class="section-number">8</span> Der Server ist grundsätzlich 24/7 verfügbar. Geplante Wartungsarbeiten werden mindestens 24 Stunden im Voraus im Discord-Server bekanntgegeben.
+            </p>
+            <p>
+                <span class="section-number">9</span> Der Betreiber behält sich das Recht vor, den Server bei technischen Problemen oder Sicherheitsvorfällen vorübergehend zu schließen.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>3. Verhaltensregeln</h2>
+            
+            <h3>3.1 Allgemeine Regeln</h3>
+            <p>
+                <span class="section-number">10</span> Spieler verpflichten sich zu einem respektvollen und freundlichen Umgang miteinander. Beleidigungen, Diskriminierung, Hassrede und Mobbing sind strengstens untersagt.
+            </p>
+            <p>
+                <span class="section-number">11</span> Die Verbreitung von fremden Inhalten (z.B. Werbung, Links zu anderen Servern) ist nur nach Genehmigung durch das Team erlaubt.
+            </p>
+
+            <h3>3.2 Spielregeln</h3>
+            <p>
+                <span class="section-number">12</span> Cheat-Programme, Hacks, Mods mit Vorteilen (z.B. X-Ray, Fly-Hacks) oder andere Manipulationen der Spielmechanik sind absolut verboten.
+            </p>
+            <p>
+                <span class="section-number">13</span> Das Ausnutzen von Bugs oder Glitches zum eigenen Vorteil ist untersagt. Gefundene Fehler müssen umgehend gemeldet werden.
+            </p>
+            <p>
+                <span class="section-number">14</span> Griefing (Zerstörung von Bauwerken anderer Spieler), Stealing (Diebstahl von Gegenständen) und Trolling sind verboten.
+            </p>
+
+            <h3>3.3 Chat-Regeln</h3>
+            <p>
+                <span class="section-number">15</span> Die Verwendung von beleidigenden, diskriminierenden oder rechtswidrigen Inhalten im Chat ist untersagt.
+            </p>
+            <p>
+                <span class="section-number">16</span> Spamming, Caps-Lock, übermäßiges Werben oder das Verbreiten von persönlichen Daten anderer Spieler ist nicht erlaubt.
+            </p>
+            <p>
+                <span class="section-number">17</span> Die Verwendung von rassistischen, sexistischen oder anderweitig diskriminierenden Begriffen führt zum sofortigen Ausschluss.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>4. Spielerrechte und -pflichten</h2>
+            
+            <h3>4.1 Rechte der Spieler</h3>
+            <p>
+                <span class="section-number">18</span> Spieler haben das Recht, die Server-Funktionen gemäß diesen AGB zu nutzen und an allen öffentlichen Aktivitäten teilzunehmen.
+            </p>
+            <p>
+                <span class="section-number">19</span> Jeder Spieler hat das Recht auf faire Behandlung durch das Team und andere Spieler.
+            </p>
+            <p>
+                <span class="section-number">20</span> Spieler können ihre Bauwerke und Errungenschaften auf dem Server schützen und verwalten.
+            </p>
+
+            <h3>4.2 Pflichten der Spieler</h3>
+            <p>
+                <span class="section-number">21</span> Spieler verpflichten sich, diese AGB und alle weiteren Regeln einzuhalten.
+            </p>
+            <p>
+                <span class="section-number">22</span> Spieler müssen ihre Zugangsdaten (Minecraft-Account) geheim halten und vor unbefugtem Zugriff schützen.
+            </p>
+            <p>
+                <span class="section-number">23</span> Bei Verstößen gegen die Regeln akzeptieren Spieler die entsprechenden Sanktionen.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>5. Moderation und Sanktionen</h2>
+            
+            <h3>5.1 Moderationsteam</h3>
+            <p>
+                <span class="section-number">24</span> Das Moderationsteam besteht aus ausgewählten Spielern und Teammitgliedern, die für die Einhaltung der Regeln sorgen.
+            </p>
+            <p>
+                <span class="section-number">25</span> Das Team hat das Recht, bei Regelverstößen entsprechende Maßnahmen zu ergreifen.
+            </p>
+
+            <h3>5.2 Sanktionen</h3>
+            <p>
+                Bei Verstößen gegen die Regeln können folgende Sanktionen verhängt werden:
+            </p>
+            <p>
+                <strong>Verwarnung:</strong> Mündliche oder schriftliche Ermahnung bei geringfügigen Verstößen.<br>
+                <strong>Mute:</strong> Stummschaltung im Chat für eine bestimmte Zeit.<br>
+                <strong>Temporärer Ban:</strong> Zeitlich begrenzter Ausschluss vom Server (1 Tag bis 30 Tage).<br>
+                <strong>Permanent Ban:</strong> Endgültiger Ausschluss vom Server bei schwerwiegenden Verstößen.
+            </p>
+            <p>
+                <span class="section-number">26</span> Die Höhe der Sanktion richtet sich nach der Schwere des Verstoßes, der Vorgeschichte des Spielers und den Umständen des Einzelfalls.
+            </p>
+
+            <h3>5.3 Beschwerden und Einsprüche</h3>
+            <p>
+                <span class="section-number">27</span> Spieler können gegen Sanktionen innerhalb von 7 Tagen Einspruch erheben. Der Einspruch ist über das Discord-Server-Formular einzureichen.
+            </p>
+            <p>
+                <span class="section-number">28</span> Der Einspruch wird von einem neutralen Team-Mitglied geprüft, das eine endgültige Entscheidung trifft.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>6. Haftungsausschluss</h2>
+            <p>
+                <span class="section-number">29</span> Der Betreiber haftet nicht für direkte oder indirekte Schäden, die durch die Nutzung des Servers entstehen, es sei denn, die Schäden beruhen auf vorsätzlichem oder grob fahrlässigem Verhalten des Betreibers.
+            </p>
+            <p>
+                <span class="section-number">30</span> Insbesondere haftet der Betreiber nicht für Datenverluste, technische Probleme oder Ausfallzeiten des Servers.
+            </p>
+            <p>
+                <span class="section-number">31</span> Die Haftung für Sach- und Vermögensschäden ist auf Vorsatz und grobe Fahrlässigkeit beschränkt.
+            </p>
+            <p>
+                <span class="section-number">32</span> Spieler haften für Schäden, die sie anderen Spielern oder dem Server durch vorsätzliches oder fahrlässiges Handeln zufügen.
+            </p>
+            <div class="highlight-box">
+                <p><strong>Wichtig:</strong> Minecraft ist ein Spiel und hat keinen realen Wert. Alle im Spiel erworbenen Gegenstände, Bauwerke und Fortschritte existieren nur innerhalb des Spiels und haben keinen finanziellen Wert.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>7. Änderungen der AGB</h2>
+            <p>
+                <span class="section-number">33</span> Der Betreiber behält sich das Recht vor, diese AGB jederzeit zu ändern oder zu ergänzen.
+            </p>
+            <p>
+                <span class="section-number">34</span> Änderungen werden mindestens 14 Tage vor Inkrafttreten im Discord-Server und auf der Website bekanntgegeben.
+            </p>
+            <p>
+                <span class="section-number">35</span> Die Fortsetzung der Servernutzung nach Bekanntgabe der Änderungen gilt als Zustimmung zu den neuen AGB.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>8. Schlussbestimmungen</h2>
+            <p>
+                <span class="section-number">36</span> Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
+            </p>
+            <p>
+                <span class="section-number">37</span> Es gilt das Recht der Bundesrepublik Deutschland. Gerichtsstand ist Berlin.
+            </p>
+            <p>
+                <span class="section-number">38</span> Diese AGB treten am 15. April 2024 in Kraft.
+            </p>
+        </div>
+    </main>
+
+    <!-- Back to Homepage Button -->
+    <div class="back-button-container">
+        <a href="https://blitzsmp.de" class="back-button">Zurück zur Homepage</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="footer-logo-icon">B</div>
+                <div class="footer-logo-text">BlitzSMP</div>
+            </div>
+            <p class="footer-text">© 2024 BlitzSMP. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
+```
